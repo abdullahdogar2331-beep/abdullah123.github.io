@@ -903,8 +903,103 @@ h2 span {
 .service-card img {
     width: 100%;
     height: 150px;
-    object-fit: cover;
-    border-radius: 14px;
-    display: block;
-    margin: 15px 0;
+   object-fit: cover;
+   border-radius: 14px;
+   display: block;
+   margin: 15px 0;
+}
+/* AI Chatbot */
+.ai-chatbot {
+    position: fixed;
+    bottom: 25px;
+    right: 25px;
+    z-index: 9999;
+    font-family: inherit;
+}
+
+#aiChatButton {
+    background: #111827;
+    color: white;
+    border: none;
+    padding: 14px 20px;
+    border-radius: 30px;
+    cursor: pointer;
+    font-size: 15px;
+    font-weight: 600;
+    box-shadow: 0 8px 25px rgba(0,0,0,0.2);
+}
+
+.ai-chat-box {
+    display: none;
+    width: 350px;
+    height: 450px;
+    background: white;
+    border-radius: 18px;
+    box-shadow: 0 10px 40px rgba(0,0,0,0.25);
+    overflow: hidden;
+    flex-direction: column;
+}
+
+.ai-chat-header {
+    background: #111827;
+    color: white;
+    padding: 16px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+#aiCloseButton {
+    background: none;
+    border: none;
+    color: white;
+    font-size: 24px;
+    cursor: pointer;
+}
+
+.ai-chat-messages {
+    flex: 1;
+    padding: 15px;
+    overflow-y: auto;
+}
+
+.ai-message {
+    padding: 10px 13px;
+    margin-bottom: 10px;
+    border-radius: 12px;
+    max-width: 85%;
+}
+
+.ai-bot {
+    background: #f1f5f9;
+    color: #111827;
+}
+
+.ai-user {
+    background: #111827;
+    color: white;
+    margin-left: auto;
+}
+
+.ai-chat-input {
+    display: flex;
+    padding: 10px;
+    border-top: 1px solid #ddd;
+    gap: 8px;
+}
+
+#aiInput {
+    flex: 1;
+    padding: 11px;
+    border: 1px solid #ddd;
+    border-radius: 10px;
+}
+
+#aiSendButton {
+    background: #111827;
+    color: white;
+    border: none;
+    padding: 10px 15px;
+    border-radius: 10px;
+    cursor: pointer;
 }
