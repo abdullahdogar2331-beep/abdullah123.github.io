@@ -1235,3 +1235,23 @@ h2 span {
 .blog-card a {
     font-weight: 600;
 }
+/* BLOG PAGE — SAME FONTS AS ARTICLES */
+
+.blog-hero h1,
+.blog-card h2 {
+    font-family: "Space Grotesk", sans-serif !important;
+    font-weight: 500;
+}
+
+.blog-hero p,
+.blog-card p,
+.blog-category,
+.blog-card a {
+    font-family: "Inter", sans-serif !important;
+    font-weight: 400;
+}
+
+.blog-category,
+.blog-card a {
+    font-weight: 600;
+}
