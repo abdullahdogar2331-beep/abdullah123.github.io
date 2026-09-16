@@ -8,13 +8,32 @@
 
     <meta name="description" content="Learn why a professional website can help small businesses build trust, reach customers and grow their online presence.">
 
+    <!-- Premium Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display&family=Manrope:wght@400;500;600;700&display=swap" rel="stylesheet">
+
     <link rel="stylesheet" href="style.css">
 
     <style>
-        /* ================================
-           PREMIUM ARTICLE
-           Portfolio Matching Theme
-        ================================= */
+
+        /* BLOG FONT */
+
+        .article-hero h1,
+        .article-section h2,
+        .article-conclusion h2,
+        .article-cta h2 {
+            font-family: "DM Serif Display", serif;
+            font-weight: 400;
+        }
+
+        .article-card,
+        .article-card p,
+        .article-intro,
+        .article-highlight {
+            font-family: "Manrope", sans-serif;
+        }
+
+
+        /* ARTICLE DESIGN */
 
         .article-page {
             padding: 150px 20px 100px;
@@ -22,39 +41,25 @@
         }
 
         .article-hero {
-            max-width: 1000px;
+            max-width: 950px;
             margin: 0 auto 55px;
             text-align: center;
         }
 
         .article-label {
-            display: inline-flex;
-            align-items: center;
-            gap: 9px;
-            color: #647d00;
+            display: inline-block;
+            color: var(--accent-dark);
             font-size: 11px;
             font-weight: 800;
             letter-spacing: 2px;
             text-transform: uppercase;
-            margin-bottom: 22px;
-        }
-
-        .article-label::before {
-            content: "";
-            width: 8px;
-            height: 8px;
-            border-radius: 50%;
-            background: var(--accent-dark);
-            box-shadow: 0 0 0 5px rgba(141, 187, 0, 0.12);
+            margin-bottom: 20px;
         }
 
         .article-hero h1 {
-            max-width: 900px;
-            margin: auto;
-            font-family: "Space Grotesk", sans-serif;
-            font-size: clamp(45px, 6vw, 72px);
+            font-size: clamp(48px, 7vw, 78px);
             line-height: 1.05;
-            letter-spacing: -3px;
+            letter-spacing: -1px;
             color: var(--dark);
         }
 
@@ -65,6 +70,7 @@
         .article-meta {
             margin-top: 25px;
             color: var(--muted);
+            font-family: "Manrope", sans-serif;
             font-size: 13px;
         }
 
@@ -74,16 +80,16 @@
         }
 
         .article-card {
-            background: var(--surface);
+            background: white;
             border: 1px solid var(--line);
-            border-radius: var(--radius);
+            border-radius: 22px;
             padding: 55px;
-            box-shadow: 0 20px 60px rgba(17, 17, 17, 0.05);
+            box-shadow: 0 20px 60px rgba(17,17,17,0.05);
         }
 
         .article-intro {
-            font-size: 20px !important;
-            line-height: 1.8 !important;
+            font-size: 19px !important;
+            line-height: 1.9 !important;
             color: #444 !important;
             padding-bottom: 35px;
             border-bottom: 1px solid var(--line);
@@ -99,70 +105,70 @@
 
         .article-highlight strong {
             display: block;
-            margin-bottom: 6px;
-            font-family: "Space Grotesk", sans-serif;
+            margin-bottom: 7px;
             font-size: 17px;
         }
 
         .article-highlight p {
-            margin-bottom: 0 !important;
+            margin: 0 !important;
             font-size: 15px !important;
             color: #555 !important;
         }
 
         .article-section {
-            margin-top: 48px;
+            margin-top: 50px;
         }
 
         .article-section h2 {
             display: flex;
             align-items: center;
             gap: 15px;
-            font-family: "Space Grotesk", sans-serif;
-            font-size: 28px;
-            letter-spacing: -1px;
-            margin: 0 0 15px;
+            font-size: 30px;
+            line-height: 1.2;
+            margin-bottom: 15px;
         }
 
         .section-number {
-            flex-shrink: 0;
             width: 42px;
             height: 42px;
+            flex-shrink: 0;
             display: grid;
             place-items: center;
             border-radius: 50%;
             background: var(--accent);
             color: var(--dark);
+            font-family: "Manrope", sans-serif;
             font-size: 12px;
             font-weight: 800;
         }
 
         .article-section p {
+            margin-left: 57px;
             color: var(--muted);
             font-size: 16px;
-            line-height: 1.8;
-            margin-left: 57px;
+            line-height: 1.9;
         }
 
         .article-conclusion {
-            margin-top: 55px;
+            margin-top: 60px;
             padding-top: 40px;
             border-top: 1px solid var(--line);
         }
 
         .article-conclusion h2 {
-            font-family: "Space Grotesk", sans-serif;
-            font-size: 32px;
+            font-size: 38px;
             margin-bottom: 15px;
         }
 
         .article-conclusion p {
             color: var(--muted);
+            font-size: 16px;
+            line-height: 1.9;
         }
 
         .article-cta {
             margin-top: 55px;
-            padding: 50px 35px;
+            padding: 50px 30px;
             background: var(--accent);
             border: none;
             border-radius: 24px;
@@ -171,9 +177,7 @@
 
         .article-cta h2 {
             margin: 0 0 12px;
-            font-family: "Space Grotesk", sans-serif;
-            font-size: 32px;
-            letter-spacing: -1.5px;
+            font-size: 38px;
         }
 
         .article-cta p {
@@ -185,20 +189,17 @@
 
         .article-cta a {
             display: inline-flex;
-            align-items: center;
-            justify-content: center;
-            padding: 14px 24px;
+            padding: 14px 25px;
             background: var(--dark);
             color: white;
             border-radius: 999px;
+            font-family: "Manrope", sans-serif;
             font-size: 14px;
             font-weight: 700;
-            transition: 0.25s ease;
         }
 
         .article-cta a:hover {
             transform: translateY(-3px);
-            background: #292929;
         }
 
         .back-blog {
@@ -207,17 +208,13 @@
         }
 
         .back-blog a {
-            display: inline-flex;
-            gap: 8px;
+            font-family: "Manrope", sans-serif;
             font-size: 13px;
             font-weight: 700;
-            border-bottom: 1px solid var(--dark);
-            padding-bottom: 5px;
         }
 
-        .back-blog a:hover {
-            opacity: 0.65;
-        }
+
+        /* MOBILE */
 
         @media (max-width: 620px) {
 
@@ -225,36 +222,16 @@
                 padding: 120px 14px 70px;
             }
 
-            .article-hero {
-                margin-bottom: 35px;
-            }
-
             .article-hero h1 {
-                font-size: 42px;
-                letter-spacing: -2px;
+                font-size: 45px;
             }
 
             .article-card {
                 padding: 30px 22px;
-                border-radius: 18px;
-            }
-
-            .article-intro {
-                font-size: 17px !important;
-            }
-
-            .article-section {
-                margin-top: 38px;
             }
 
             .article-section h2 {
-                font-size: 22px;
-                gap: 11px;
-            }
-
-            .section-number {
-                width: 36px;
-                height: 36px;
+                font-size: 24px;
             }
 
             .article-section p {
@@ -262,21 +239,20 @@
                 font-size: 15px;
             }
 
-            .article-cta {
-                padding: 40px 20px;
-            }
-
             .article-cta h2 {
-                font-size: 27px;
+                font-size: 30px;
             }
         }
+
     </style>
 </head>
 
 <body>
 
-    <!-- Header -->
+    <!-- HEADER -->
+
     <header class="header">
+
         <div class="container">
 
             <nav class="navbar">
@@ -287,42 +263,31 @@
 
                 <div class="nav-links">
 
-                    <a href="index.html" class="nav-link">
-                        Home
-                    </a>
+                    <a href="index.html" class="nav-link">Home</a>
 
-                    <a href="index.html#about" class="nav-link">
-                        About
-                    </a>
+                    <a href="index.html#about" class="nav-link">About</a>
 
-                    <a href="index.html#services" class="nav-link">
-                        Services
-                    </a>
+                    <a href="index.html#services" class="nav-link">Services</a>
 
-                    <a href="index.html#projects" class="nav-link">
-                        Projects
-                    </a>
+                    <a href="index.html#projects" class="nav-link">Projects</a>
 
-                    <a href="blog.html" class="nav-link active">
-                        Blog
-                    </a>
+                    <a href="blog.html" class="nav-link active">Blog</a>
 
-                    <a href="index.html#contact" class="nav-link">
-                        Contact
-                    </a>
+                    <a href="index.html#contact" class="nav-link">Contact</a>
 
                 </div>
 
             </nav>
 
         </div>
+
     </header>
 
 
-    <!-- Article -->
+    <!-- ARTICLE -->
+
     <main class="article-page">
 
-        <!-- Hero -->
         <div class="article-hero">
 
             <div class="article-label">
@@ -341,7 +306,6 @@
         </div>
 
 
-        <!-- Content -->
         <div class="article-container">
 
             <article class="article-card">
@@ -354,7 +318,6 @@
                 </p>
 
 
-                <!-- Highlight -->
                 <div class="article-highlight">
 
                     <strong>Quick Takeaway</strong>
@@ -368,7 +331,6 @@
                 </div>
 
 
-                <!-- 01 -->
                 <section class="article-section">
 
                     <h2>
@@ -386,7 +348,6 @@
                 </section>
 
 
-                <!-- 02 -->
                 <section class="article-section">
 
                     <h2>
@@ -404,7 +365,6 @@
                 </section>
 
 
-                <!-- 03 -->
                 <section class="article-section">
 
                     <h2>
@@ -421,7 +381,6 @@
                 </section>
 
 
-                <!-- 04 -->
                 <section class="article-section">
 
                     <h2>
@@ -439,7 +398,6 @@
                 </section>
 
 
-                <!-- 05 -->
                 <section class="article-section">
 
                     <h2>
@@ -456,7 +414,6 @@
                 </section>
 
 
-                <!-- 06 -->
                 <section class="article-section">
 
                     <h2>
@@ -474,7 +431,6 @@
                 </section>
 
 
-                <!-- Conclusion -->
                 <div class="article-conclusion">
 
                     <h2>Conclusion</h2>
@@ -489,7 +445,6 @@
                 </div>
 
 
-                <!-- CTA -->
                 <div class="article-cta">
 
                     <h2>Need a Professional Website?</h2>
@@ -506,7 +461,6 @@
                 </div>
 
 
-                <!-- Back -->
                 <div class="back-blog">
 
                     <a href="blog.html">
@@ -522,7 +476,8 @@
     </main>
 
 
-    <!-- Footer -->
+    <!-- FOOTER -->
+
     <footer class="footer">
 
         <div class="container footer-inner">
