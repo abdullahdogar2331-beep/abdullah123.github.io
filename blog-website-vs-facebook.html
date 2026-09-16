@@ -1,454 +1,261 @@
+```html
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    <title>Website vs Facebook Page: Which Is Better for a Business?</title>
+    <title>Website vs Facebook Page | Mohammad Abdullah</title>
+
+    <!-- Main Website CSS -->
+    <link rel="stylesheet" href="style.css">
 
     <!-- Premium Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-
-    <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Playfair+Display:wght@500;600;700&display=swap" rel="stylesheet">
-
-    <style>
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
-
-        body {
-            background: #f7f7f5;
-            color: #111111;
-            font-family: "DM Sans", sans-serif;
-            line-height: 1.8;
-        }
-
-        .article-container {
-            max-width: 900px;
-            margin: 0 auto;
-            padding: 80px 25px;
-        }
-
-        .back-link {
-            display: inline-block;
-            margin-bottom: 45px;
-            color: #707070;
-            text-decoration: none;
-            font-size: 14px;
-            font-weight: 600;
-            letter-spacing: 0.3px;
-            transition: 0.3s ease;
-        }
-
-        .back-link:hover {
-            color: #111111;
-        }
-
-        .article-label {
-            font-size: 13px;
-            font-weight: 700;
-            text-transform: uppercase;
-            letter-spacing: 2px;
-            color: #777777;
-            margin-bottom: 18px;
-        }
-
-        h1 {
-            font-family: "Playfair Display", serif;
-            font-size: clamp(42px, 6vw, 72px);
-            line-height: 1.08;
-            font-weight: 600;
-            letter-spacing: -1.8px;
-            max-width: 850px;
-            margin-bottom: 28px;
-        }
-
-        .intro {
-            font-size: 20px;
-            line-height: 1.7;
-            color: #5f5f5f;
-            max-width: 760px;
-            margin-bottom: 55px;
-        }
-
-        .article-meta {
-            border-top: 1px solid #deded9;
-            border-bottom: 1px solid #deded9;
-            padding: 18px 0;
-            margin-bottom: 60px;
-            font-size: 13px;
-            color: #777777;
-        }
-
-        .article-content {
-            max-width: 760px;
-            margin: 0 auto;
-        }
-
-        .article-content p {
-            font-size: 17px;
-            color: #333333;
-            margin-bottom: 28px;
-        }
-
-        .article-content h2 {
-            font-family: "Playfair Display", serif;
-            font-size: 34px;
-            line-height: 1.25;
-            margin-top: 60px;
-            margin-bottom: 22px;
-            font-weight: 600;
-        }
-
-        .article-content h3 {
-            font-family: "DM Sans", sans-serif;
-            font-size: 21px;
-            margin-top: 35px;
-            margin-bottom: 12px;
-            font-weight: 700;
-        }
-
-        .article-content ul {
-            margin: 20px 0 30px 22px;
-        }
-
-        .article-content li {
-            margin-bottom: 12px;
-            padding-left: 5px;
-            color: #333333;
-        }
-
-        .highlight-box {
-            background: #ffffff;
-            border: 1px solid #deded9;
-            padding: 32px;
-            margin: 45px 0;
-        }
-
-        .highlight-box strong {
-            display: block;
-            font-family: "Playfair Display", serif;
-            font-size: 24px;
-            margin-bottom: 10px;
-        }
-
-        .comparison {
-            width: 100%;
-            border-collapse: collapse;
-            margin: 35px 0 45px;
-            background: #ffffff;
-            border: 1px solid #deded9;
-        }
-
-        .comparison th,
-        .comparison td {
-            padding: 18px;
-            text-align: left;
-            border-bottom: 1px solid #deded9;
-            font-size: 15px;
-        }
-
-        .comparison th {
-            font-weight: 700;
-            background: #f1f1ed;
-        }
-
-        .comparison tr:last-child td {
-            border-bottom: none;
-        }
-
-        .conclusion {
-            margin-top: 65px;
-            padding-top: 35px;
-            border-top: 1px solid #deded9;
-        }
-
-        .conclusion h2 {
-            margin-top: 0;
-        }
-
-        .cta {
-            margin-top: 55px;
-            padding: 40px;
-            background: #111111;
-            color: #ffffff;
-        }
-
-        .cta h3 {
-            font-family: "Playfair Display", serif;
-            font-size: 30px;
-            margin: 0 0 12px;
-        }
-
-        .cta p {
-            color: #d6d6d6;
-            margin-bottom: 22px;
-        }
-
-        .cta a {
-            display: inline-block;
-            background: #c7ff00;
-            color: #111111;
-            text-decoration: none;
-            padding: 13px 22px;
-            font-weight: 700;
-            font-size: 14px;
-            transition: 0.3s ease;
-        }
-
-        .cta a:hover {
-            transform: translateY(-2px);
-        }
-
-        @media (max-width: 650px) {
-
-            .article-container {
-                padding: 55px 20px;
-            }
-
-            h1 {
-                font-size: 42px;
-                letter-spacing: -1px;
-            }
-
-            .intro {
-                font-size: 18px;
-            }
-
-            .article-content p {
-                font-size: 16px;
-            }
-
-            .article-content h2 {
-                font-size: 29px;
-            }
-
-            .comparison {
-                font-size: 14px;
-            }
-
-            .comparison th,
-            .comparison td {
-                padding: 12px 10px;
-            }
-
-            .highlight-box,
-            .cta {
-                padding: 25px;
-            }
-        }
-    </style>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Space+Grotesk:wght@400;500;600;700&display=swap" rel="stylesheet">
 </head>
 
 <body>
 
-    <main class="article-container">
+    <!-- Header -->
+    <header class="header">
+        <div class="container navbar">
 
-        <a href="index.html" class="back-link">← Back to Articles</a>
+            <a href="index.html" class="logo">
+                Mohammad<span>.</span>
+            </a>
 
-        <div class="article-label">Business & Web Development</div>
+            <a href="index.html#blog" class="nav-button">
+                Back to Blog
+            </a>
 
-        <h1>
-            Website vs Facebook Page:
-            Which Is Better for a Business?
-        </h1>
-
-        <p class="intro">
-            A Facebook Page can help a business connect with customers,
-            but a professional website offers something different:
-            ownership, credibility, flexibility, and a dedicated online presence.
-        </p>
-
-        <div class="article-meta">
-            By Mohammad Abdullah &nbsp; • &nbsp; Web Development
         </div>
+    </header>
 
-        <article class="article-content">
+
+    <!-- Article -->
+    <main class="article-page">
+
+        <article class="article">
+
+            <div class="blog-category">
+                Business & Web Development
+            </div>
+
+            <h1>
+                Website vs Facebook Page:
+                Which Is Better for a Business?
+            </h1>
+
+            <div class="article-date">
+                By Mohammad Abdullah
+            </div>
+
 
             <p>
-                Today, almost every business needs an online presence.
-                For many business owners, the first question is whether
-                they should create a website or simply use a Facebook Page.
+                In today's digital world, having an online presence is
+                important for almost every business. But many business
+                owners ask the same question: should they create a
+                professional website or simply use a Facebook Page?
             </p>
 
             <p>
-                Both can be useful, but they serve different purposes.
-                Understanding the difference can help a business create
-                a stronger and more professional digital presence.
+                Both platforms can help a business connect with customers,
+                but they serve different purposes. Understanding the
+                difference can help businesses build a stronger online
+                presence.
             </p>
 
-            <h2>What Does a Facebook Page Offer?</h2>
+
+            <h2>
+                What Does a Facebook Page Offer?
+            </h2>
 
             <p>
                 A Facebook Page gives businesses a simple way to communicate
-                with their audience. Businesses can publish updates, share
-                photos, receive messages, collect reviews, and interact with
-                potential customers.
+                with their audience. Businesses can share updates, photos,
+                offers, customer reviews and important announcements.
             </p>
 
             <p>
-                It is also useful for social media marketing because customers
-                can discover a business while browsing Facebook.
+                Facebook can also be useful for social media marketing,
+                because potential customers can discover a business while
+                using the platform.
             </p>
 
-            <h2>What Does a Website Offer?</h2>
+
+            <h2>
+                What Does a Website Offer?
+            </h2>
 
             <p>
                 A website gives a business its own dedicated space on the
-                internet. Instead of depending entirely on a social media
-                platform, the business can present its services, portfolio,
-                contact information, pricing, and other important details
-                in one professional location.
+                internet. It allows the business to present its services,
+                information, portfolio, contact details and other important
+                content in one professional location.
             </p>
 
-            <h3>1. Professional Image</h3>
+
+            <h2>
+                1. A More Professional Presence
+            </h2>
 
             <p>
-                A well-designed website can make a business look more
-                established and organized. It allows the brand to control
-                its layout, colors, typography, content, and overall experience.
+                A professionally designed website can give customers a
+                clear understanding of what a business does and how they
+                can get in touch.
             </p>
-
-            <h3>2. More Control</h3>
 
             <p>
-                A Facebook Page operates within Facebook's platform and
-                features. A website gives the business considerably more
-                control over how information is presented and how customers
-                navigate through the business.
+                Unlike a social media profile, a website can be designed
+                around the business's own branding, structure and goals.
             </p>
 
-            <h3>3. Business Information in One Place</h3>
+
+            <h2>
+                2. More Control Over Your Brand
+            </h2>
+
+            <p>
+                A Facebook Page operates within Facebook's design and
+                platform. A website gives a business much greater control
+                over its layout, colours, typography, content and customer
+                experience.
+            </p>
+
+
+            <h2>
+                3. All Business Information in One Place
+            </h2>
 
             <p>
                 A website can bring together services, about information,
-                testimonials, project examples, FAQs, contact forms, and
-                other important business information.
+                testimonials, project examples, frequently asked questions
+                and contact options.
             </p>
 
-            <h2>Website vs Facebook Page</h2>
+            <p>
+                Instead of asking customers to search through social media
+                posts, businesses can organize their information into clear
+                pages and sections.
+            </p>
 
-            <table class="comparison">
 
-                <tr>
-                    <th>Feature</th>
-                    <th>Website</th>
-                    <th>Facebook Page</th>
-                </tr>
+            <h2>
+                Website vs Facebook Page
+            </h2>
 
-                <tr>
-                    <td>Professional presentation</td>
-                    <td>High flexibility</td>
-                    <td>Platform-based</td>
-                </tr>
+            <table class="comparison-table">
 
-                <tr>
-                    <td>Design control</td>
-                    <td>Extensive</td>
-                    <td>Limited</td>
-                </tr>
+                <thead>
+                    <tr>
+                        <th>Feature</th>
+                        <th>Website</th>
+                        <th>Facebook Page</th>
+                    </tr>
+                </thead>
 
-                <tr>
-                    <td>Business information</td>
-                    <td>Fully customizable</td>
-                    <td>Standardized</td>
-                </tr>
+                <tbody>
 
-                <tr>
-                    <td>Customer communication</td>
-                    <td>Forms, email & more</td>
-                    <td>Messenger & comments</td>
-                </tr>
+                    <tr>
+                        <td>Design control</td>
+                        <td>High</td>
+                        <td>Limited</td>
+                    </tr>
 
-                <tr>
-                    <td>Social engagement</td>
-                    <td>Limited by design</td>
-                    <td>Strong</td>
-                </tr>
+                    <tr>
+                        <td>Brand customization</td>
+                        <td>Extensive</td>
+                        <td>Limited</td>
+                    </tr>
 
-                <tr>
-                    <td>Brand ownership</td>
-                    <td>Greater control</td>
-                    <td>Dependent on platform</td>
-                </tr>
+                    <tr>
+                        <td>Business information</td>
+                        <td>Fully customizable</td>
+                        <td>Platform-based</td>
+                    </tr>
+
+                    <tr>
+                        <td>Customer communication</td>
+                        <td>Forms, email & more</td>
+                        <td>Messenger & comments</td>
+                    </tr>
+
+                    <tr>
+                        <td>Social engagement</td>
+                        <td>Limited</td>
+                        <td>Strong</td>
+                    </tr>
+
+                </tbody>
 
             </table>
 
-            <div class="highlight-box">
 
-                <strong>
-                    The two do not have to compete.
-                </strong>
+            <div class="article-highlight">
+
+                <h3>
+                    Website and Facebook can work together.
+                </h3>
 
                 <p>
-                    For many businesses, a website and a Facebook Page
-                    can work together. Social media can help attract
-                    attention, while the website can provide a central
-                    destination for detailed business information.
+                    Businesses do not necessarily have to choose only one.
+                    Social media can help attract and engage customers,
+                    while a website can provide a central destination
+                    for detailed business information.
                 </p>
 
             </div>
 
-            <h2>Why Businesses Can Benefit From Both</h2>
+
+            <h2>
+                Why Businesses Can Benefit From Both
+            </h2>
 
             <p>
-                Social media is useful for reaching people and building
-                conversations. A website can provide a more complete
-                destination for people who want to learn more about a business.
+                Social media can be useful for building conversations,
+                sharing updates and reaching an audience. A website can
+                provide a more structured and professional destination
+                for people who want to learn more about the business.
             </p>
 
             <p>
-                For example, a business might share a service on Facebook
-                and then direct interested customers to its website for
-                detailed information, examples of previous work, and contact
-                options.
+                For example, a business can promote a service on Facebook
+                and direct interested customers to its website where they
+                can explore the service, view previous work and send an
+                enquiry.
             </p>
 
-            <h2>What Should a Business Choose?</h2>
+
+            <h2>
+                What Should a Business Choose?
+            </h2>
 
             <p>
                 The right setup depends on the business, its audience,
-                marketing strategy, and goals.
+                marketing strategy and goals.
             </p>
 
             <p>
                 A Facebook Page can be useful for social interaction and
-                audience engagement, while a website can provide a dedicated
-                and customizable home for the business online.
+                audience engagement, while a website can provide a
+                dedicated and customizable home for the business online.
             </p>
 
-            <div class="conclusion">
 
-                <h2>Final Thoughts</h2>
+            <div class="article-cta">
 
-                <p>
-                    A Facebook Page and a website are not necessarily
-                    alternatives. They can serve different roles in a
-                    business's online strategy.
-                </p>
-
-                <p>
-                    Businesses that want a professional online presence
-                    can use social media to connect with their audience
-                    while using a website as a central place for their
-                    services, information, and customer enquiries.
-                </p>
-
-            </div>
-
-            <div class="cta">
-
-                <h3>Need a Professional Website?</h3>
+                <h2>
+                    Need a Professional Website?
+                </h2>
 
                 <p>
                     I help businesses build modern, responsive and
                     professional websites designed around their goals.
                 </p>
 
-                <a href="index.html#contact">
+                <a href="index.html#contact" class="btn btn-primary">
                     Let's Work Together →
                 </a>
 
@@ -458,5 +265,171 @@
 
     </main>
 
+
+    <!-- Footer -->
+    <footer class="footer">
+
+        <div class="container footer-inner">
+
+            <p>
+                © 2026 Mohammad Abdullah. All rights reserved.
+            </p>
+
+            <a href="index.html" class="back-top">
+                Back to Home ↑
+            </a>
+
+        </div>
+
+    </footer>
+
+
+    <!-- Extra Article Styling -->
+    <style>
+
+        .article-page {
+            padding-top: 150px;
+        }
+
+        .article {
+            max-width: 820px;
+        }
+
+        .article .blog-category {
+            color: var(--accent-dark);
+            font-family: "Space Grotesk", sans-serif;
+            font-weight: 700;
+            letter-spacing: 1.5px;
+        }
+
+        .article h1 {
+            font-family: "Space Grotesk", sans-serif;
+            color: var(--dark);
+            letter-spacing: -2.5px;
+            font-weight: 700;
+        }
+
+        .article h2 {
+            font-family: "Space Grotesk", sans-serif;
+            color: var(--dark);
+            letter-spacing: -1.5px;
+            font-weight: 600;
+        }
+
+        .article p {
+            color: var(--muted);
+        }
+
+        .article-date {
+            color: var(--muted);
+        }
+
+        /* Comparison Table */
+
+        .comparison-table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 40px 0;
+            background: var(--surface);
+            border: 1px solid var(--line);
+            border-radius: var(--radius);
+            overflow: hidden;
+        }
+
+        .comparison-table th,
+        .comparison-table td {
+            padding: 18px;
+            text-align: left;
+            border-bottom: 1px solid var(--line);
+        }
+
+        .comparison-table th {
+            background: var(--dark);
+            color: white;
+            font-family: "Space Grotesk", sans-serif;
+        }
+
+        .comparison-table td {
+            color: var(--muted);
+        }
+
+        .comparison-table tr:last-child td {
+            border-bottom: none;
+        }
+
+        /* Highlight */
+
+        .article-highlight {
+            margin: 50px 0;
+            padding: 35px;
+            background: var(--accent);
+            border-radius: var(--radius);
+        }
+
+        .article-highlight h3 {
+            font-family: "Space Grotesk", sans-serif;
+            font-size: 25px;
+            margin-bottom: 12px;
+            color: var(--dark);
+        }
+
+        .article-highlight p {
+            color: #303500;
+            margin-bottom: 0;
+        }
+
+        /* CTA */
+
+        .article-cta {
+            margin-top: 70px;
+            padding: 50px 35px;
+            background: var(--dark);
+            border-radius: var(--radius);
+            text-align: center;
+        }
+
+        .article-cta h2 {
+            color: white;
+            margin-top: 0;
+        }
+
+        .article-cta p {
+            color: #999;
+            margin-bottom: 25px;
+        }
+
+        @media (max-width: 620px) {
+
+            .article-page {
+                padding-top: 120px;
+            }
+
+            .article h1 {
+                font-size: 40px;
+            }
+
+            .article h2 {
+                font-size: 28px;
+            }
+
+            .comparison-table {
+                font-size: 13px;
+            }
+
+            .comparison-table th,
+            .comparison-table td {
+                padding: 12px 8px;
+            }
+
+            .article-highlight,
+            .article-cta {
+                padding: 30px 22px;
+            }
+
+        }
+
+    </style>
+
 </body>
 </html>
+```
