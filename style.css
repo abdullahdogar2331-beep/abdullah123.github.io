@@ -1168,3 +1168,17 @@ h2 span {
 .article-page .blog-category {
     font-family: "Space Grotesk", sans-serif;
 }
+/* SAME FONT AS FACEBOOK BLOG */
+
+.article-page h1,
+.article-page h2,
+.article-page h3 {
+    font-family: "Space Grotesk", sans-serif !important;
+}
+
+.article-page p,
+.article-page span,
+.article-page li,
+.article-page a {
+    font-family: "Inter", sans-serif !important;
+}
