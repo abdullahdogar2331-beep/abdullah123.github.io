@@ -11,347 +11,263 @@
     <link rel="stylesheet" href="style.css">
 
     <style>
-        /* =========================
-           PREMIUM ARTICLE PAGE
-        ========================= */
+        /* ================================
+           PREMIUM ARTICLE
+           Portfolio Matching Theme
+        ================================= */
 
-        body {
-            background: #080808;
-            color: #f5f5f5;
+        .article-page {
+            padding: 150px 20px 100px;
+            background: var(--bg);
         }
 
-        /* Header */
-        header {
-            position: sticky;
-            top: 0;
-            z-index: 1000;
-            background: rgba(8, 8, 8, 0.88);
-            backdrop-filter: blur(18px);
-            border-bottom: 1px solid rgba(255, 255, 255, 0.08);
-        }
-
-        .navbar {
-            max-width: 1200px;
-            margin: auto;
-            padding: 20px 25px;
-            display: flex;
-            align-items: center;
-            justify-content: space-between;
-        }
-
-        .logo {
-            color: #fff;
-            text-decoration: none;
-            font-size: 21px;
-            font-weight: 700;
-            letter-spacing: -0.5px;
-        }
-
-        .nav-links {
-            display: flex;
-            align-items: center;
-            gap: 28px;
-        }
-
-        .nav-links a {
-            color: #bdbdbd;
-            text-decoration: none;
-            font-size: 14px;
-            transition: 0.3s ease;
-        }
-
-        .nav-links a:hover {
-            color: #fff;
-        }
-
-        /* Hero */
         .article-hero {
-            position: relative;
-            overflow: hidden;
-            padding: 110px 25px 90px;
+            max-width: 1000px;
+            margin: 0 auto 55px;
             text-align: center;
-            background:
-                radial-gradient(circle at 50% 0%,
-                rgba(130, 80, 255, 0.18),
-                transparent 38%),
-                #080808;
         }
 
-        .article-hero::before {
+        .article-label {
+            display: inline-flex;
+            align-items: center;
+            gap: 9px;
+            color: #647d00;
+            font-size: 11px;
+            font-weight: 800;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+            margin-bottom: 22px;
+        }
+
+        .article-label::before {
             content: "";
-            position: absolute;
-            width: 420px;
-            height: 420px;
-            top: -220px;
-            left: 50%;
-            transform: translateX(-50%);
-            background: rgba(130, 80, 255, 0.12);
-            filter: blur(100px);
+            width: 8px;
+            height: 8px;
             border-radius: 50%;
-        }
-
-        .article-hero-content {
-            position: relative;
-            max-width: 900px;
-            margin: auto;
-        }
-
-        .article-badge {
-            display: inline-block;
-            padding: 8px 15px;
-            border: 1px solid rgba(170, 120, 255, 0.35);
-            border-radius: 50px;
-            background: rgba(130, 80, 255, 0.08);
-            color: #c8aaff;
-            font-size: 13px;
-            font-weight: 600;
-            letter-spacing: 0.5px;
-            margin-bottom: 25px;
+            background: var(--accent-dark);
+            box-shadow: 0 0 0 5px rgba(141, 187, 0, 0.12);
         }
 
         .article-hero h1 {
-            margin: 0 auto 25px;
-            max-width: 850px;
-            font-size: clamp(42px, 6vw, 72px);
+            max-width: 900px;
+            margin: auto;
+            font-family: "Space Grotesk", sans-serif;
+            font-size: clamp(45px, 6vw, 72px);
             line-height: 1.05;
-            letter-spacing: -2.5px;
-            font-weight: 800;
+            letter-spacing: -3px;
+            color: var(--dark);
         }
 
         .article-hero h1 span {
-            background: linear-gradient(90deg, #ffffff, #a984ff);
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
+            color: #8caf19;
         }
 
         .article-meta {
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            gap: 14px;
-            color: #8f8f8f;
-            font-size: 14px;
+            margin-top: 25px;
+            color: var(--muted);
+            font-size: 13px;
         }
 
-        .meta-dot {
-            width: 4px;
-            height: 4px;
-            background: #777;
-            border-radius: 50%;
-        }
-
-        /* Article Container */
-        .article-wrapper {
+        .article-container {
             max-width: 900px;
-            margin: -20px auto 100px;
-            padding: 0 25px;
-            position: relative;
-            z-index: 2;
+            margin: auto;
         }
 
         .article-card {
-            background: #111111;
-            border: 1px solid rgba(255, 255, 255, 0.09);
-            border-radius: 24px;
+            background: var(--surface);
+            border: 1px solid var(--line);
+            border-radius: var(--radius);
             padding: 55px;
-            box-shadow:
-                0 30px 80px rgba(0, 0, 0, 0.45);
+            box-shadow: 0 20px 60px rgba(17, 17, 17, 0.05);
         }
 
         .article-intro {
-            font-size: 20px;
-            line-height: 1.8;
-            color: #d4d4d4;
-            margin-bottom: 45px;
+            font-size: 20px !important;
+            line-height: 1.8 !important;
+            color: #444 !important;
+            padding-bottom: 35px;
+            border-bottom: 1px solid var(--line);
         }
 
-        .article-card h2 {
-            font-size: 27px;
-            margin-top: 50px;
-            margin-bottom: 17px;
-            color: #fff;
-            letter-spacing: -0.5px;
-        }
-
-        .article-card h2:first-of-type {
-            margin-top: 0;
-        }
-
-        .article-card p {
-            color: #a9a9a9;
-            font-size: 16px;
-            line-height: 1.85;
-            margin-bottom: 25px;
-        }
-
-        /* Highlight Box */
-        .highlight-box {
-            margin: 45px 0;
+        .article-highlight {
+            margin: 35px 0 45px;
             padding: 25px 28px;
-            border-left: 3px solid #9b6cff;
-            border-radius: 12px;
-            background: rgba(130, 80, 255, 0.07);
+            background: #f1f5df;
+            border-left: 4px solid var(--accent-dark);
+            border-radius: 14px;
         }
 
-        .highlight-box p {
-            margin: 0;
-            color: #d5d5d5;
-            font-size: 16px;
+        .article-highlight strong {
+            display: block;
+            margin-bottom: 6px;
+            font-family: "Space Grotesk", sans-serif;
+            font-size: 17px;
         }
 
-        .highlight-box strong {
-            color: #fff;
+        .article-highlight p {
+            margin-bottom: 0 !important;
+            font-size: 15px !important;
+            color: #555 !important;
         }
 
-        /* Number circles */
-        .section-title {
+        .article-section {
+            margin-top: 48px;
+        }
+
+        .article-section h2 {
             display: flex;
             align-items: center;
             gap: 15px;
+            font-family: "Space Grotesk", sans-serif;
+            font-size: 28px;
+            letter-spacing: -1px;
+            margin: 0 0 15px;
         }
 
-        .number {
-            min-width: 38px;
-            height: 38px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
+        .section-number {
+            flex-shrink: 0;
+            width: 42px;
+            height: 42px;
+            display: grid;
+            place-items: center;
             border-radius: 50%;
-            background: rgba(130, 80, 255, 0.12);
-            border: 1px solid rgba(160, 120, 255, 0.3);
-            color: #b999ff;
-            font-size: 14px;
-            font-weight: 700;
+            background: var(--accent);
+            color: var(--dark);
+            font-size: 12px;
+            font-weight: 800;
         }
 
-        /* Conclusion */
-        .conclusion {
+        .article-section p {
+            color: var(--muted);
+            font-size: 16px;
+            line-height: 1.8;
+            margin-left: 57px;
+        }
+
+        .article-conclusion {
             margin-top: 55px;
             padding-top: 40px;
-            border-top: 1px solid rgba(255, 255, 255, 0.08);
+            border-top: 1px solid var(--line);
         }
 
-        /* CTA */
+        .article-conclusion h2 {
+            font-family: "Space Grotesk", sans-serif;
+            font-size: 32px;
+            margin-bottom: 15px;
+        }
+
+        .article-conclusion p {
+            color: var(--muted);
+        }
+
         .article-cta {
-            margin-top: 60px;
-            padding: 45px 35px;
+            margin-top: 55px;
+            padding: 50px 35px;
+            background: var(--accent);
+            border: none;
+            border-radius: 24px;
             text-align: center;
-            border-radius: 20px;
-            background:
-                radial-gradient(circle at 50% 0%,
-                rgba(130, 80, 255, 0.22),
-                transparent 60%),
-                #171717;
-            border: 1px solid rgba(255, 255, 255, 0.1);
         }
 
         .article-cta h2 {
-            margin-top: 0;
-            font-size: 30px;
+            margin: 0 0 12px;
+            font-family: "Space Grotesk", sans-serif;
+            font-size: 32px;
+            letter-spacing: -1.5px;
         }
 
         .article-cta p {
-            max-width: 580px;
-            margin: 0 auto 28px;
+            max-width: 570px;
+            margin: 0 auto 25px;
+            color: #4f6200;
+            font-size: 15px;
         }
 
         .article-cta a {
-            display: inline-block;
-            padding: 13px 25px;
-            border-radius: 10px;
-            background: #fff;
-            color: #080808;
-            text-decoration: none;
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            padding: 14px 24px;
+            background: var(--dark);
+            color: white;
+            border-radius: 999px;
+            font-size: 14px;
             font-weight: 700;
-            transition: 0.3s ease;
+            transition: 0.25s ease;
         }
 
         .article-cta a:hover {
             transform: translateY(-3px);
-            box-shadow: 0 10px 30px rgba(255, 255, 255, 0.12);
+            background: #292929;
         }
 
-        /* Back Button */
         .back-blog {
             text-align: center;
             margin-top: 35px;
         }
 
         .back-blog a {
-            color: #999;
-            text-decoration: none;
-            font-size: 14px;
-            transition: 0.3s ease;
+            display: inline-flex;
+            gap: 8px;
+            font-size: 13px;
+            font-weight: 700;
+            border-bottom: 1px solid var(--dark);
+            padding-bottom: 5px;
         }
 
         .back-blog a:hover {
-            color: #fff;
+            opacity: 0.65;
         }
 
-        /* Footer */
-        footer {
-            padding: 35px 20px;
-            text-align: center;
-            border-top: 1px solid rgba(255, 255, 255, 0.07);
-            color: #777;
-            font-size: 13px;
-        }
+        @media (max-width: 620px) {
 
-        /* Mobile */
-        @media (max-width: 768px) {
-
-            .navbar {
-                padding: 18px 20px;
-            }
-
-            .logo {
-                font-size: 18px;
-            }
-
-            .nav-links {
-                gap: 13px;
-            }
-
-            .nav-links a {
-                font-size: 12px;
+            .article-page {
+                padding: 120px 14px 70px;
             }
 
             .article-hero {
-                padding: 80px 20px 70px;
+                margin-bottom: 35px;
             }
 
             .article-hero h1 {
                 font-size: 42px;
-                letter-spacing: -1.5px;
-            }
-
-            .article-meta {
-                flex-wrap: wrap;
-            }
-
-            .article-wrapper {
-                padding: 0 15px;
+                letter-spacing: -2px;
             }
 
             .article-card {
-                padding: 32px 22px;
+                padding: 30px 22px;
                 border-radius: 18px;
             }
 
             .article-intro {
-                font-size: 17px;
+                font-size: 17px !important;
             }
 
-            .article-card h2 {
-                font-size: 23px;
+            .article-section {
+                margin-top: 38px;
             }
 
-            .article-card p {
+            .article-section h2 {
+                font-size: 22px;
+                gap: 11px;
+            }
+
+            .section-number {
+                width: 36px;
+                height: 36px;
+            }
+
+            .article-section p {
+                margin-left: 0;
                 font-size: 15px;
             }
 
             .article-cta {
-                padding: 35px 20px;
+                padding: 40px 20px;
+            }
+
+            .article-cta h2 {
+                font-size: 27px;
             }
         }
     </style>
@@ -360,34 +276,58 @@
 <body>
 
     <!-- Header -->
-    <header>
-        <nav class="navbar">
+    <header class="header">
+        <div class="container">
 
-            <a href="index.html" class="logo">
-                Mohammad Abdullah
-            </a>
+            <nav class="navbar">
 
-            <div class="nav-links">
-                <a href="index.html">Home</a>
-                <a href="index.html#about">About</a>
-                <a href="index.html#services">Services</a>
-                <a href="index.html#work">Work</a>
-                <a href="blog.html">Blog</a>
-                <a href="index.html#contact">Contact</a>
-            </div>
+                <a href="index.html" class="logo">
+                    Mohammad Abdullah
+                </a>
 
-        </nav>
+                <div class="nav-links">
+
+                    <a href="index.html" class="nav-link">
+                        Home
+                    </a>
+
+                    <a href="index.html#about" class="nav-link">
+                        About
+                    </a>
+
+                    <a href="index.html#services" class="nav-link">
+                        Services
+                    </a>
+
+                    <a href="index.html#projects" class="nav-link">
+                        Projects
+                    </a>
+
+                    <a href="blog.html" class="nav-link active">
+                        Blog
+                    </a>
+
+                    <a href="index.html#contact" class="nav-link">
+                        Contact
+                    </a>
+
+                </div>
+
+            </nav>
+
+        </div>
     </header>
 
 
-    <!-- Premium Article Hero -->
-    <section class="article-hero">
+    <!-- Article -->
+    <main class="article-page">
 
-        <div class="article-hero-content">
+        <!-- Hero -->
+        <div class="article-hero">
 
-            <span class="article-badge">
-                WEB DEVELOPMENT
-            </span>
+            <div class="article-label">
+                Web Development
+            </div>
 
             <h1>
                 Why Does a Small Business
@@ -395,172 +335,207 @@
             </h1>
 
             <div class="article-meta">
-                <span>Published September 16, 2026</span>
-
-                <span class="meta-dot"></span>
-
-                <span>5 min read</span>
+                Published September 16, 2026 &nbsp; • &nbsp; 5 min read
             </div>
 
         </div>
 
-    </section>
 
+        <!-- Content -->
+        <div class="article-container">
 
-    <!-- Article -->
-    <main class="article-wrapper">
+            <article class="article-card">
 
-        <article class="article-card">
-
-            <p class="article-intro">
-                In today's digital world, having a professional online
-                presence is important for many small businesses. A website
-                gives customers a place where they can learn about your
-                business, services and contact information.
-            </p>
-
-
-            <div class="highlight-box">
-                <p>
-                    <strong>Quick takeaway:</strong>
-                    A website gives your business a dedicated online
-                    presence where customers can discover your services,
-                    learn about your work and contact you.
-                </p>
-            </div>
-
-
-            <!-- Section 1 -->
-            <h2 class="section-title">
-                <span class="number">01</span>
-                Build Trust With Customers
-            </h2>
-
-            <p>
-                A professional website can make a business look more
-                established and trustworthy. Customers can learn about
-                your services, see your work and find important information
-                in one place.
-            </p>
-
-
-            <!-- Section 2 -->
-            <h2 class="section-title">
-                <span class="number">02</span>
-                Help Customers Find Your Business
-            </h2>
-
-            <p>
-                Many people use search engines when looking for a local
-                service or business. A well-structured website gives your
-                business an opportunity to appear in relevant searches.
-            </p>
-
-
-            <!-- Section 3 -->
-            <h2 class="section-title">
-                <span class="number">03</span>
-                Show Your Services Clearly
-            </h2>
-
-            <p>
-                Social media posts can disappear quickly in a busy feed.
-                A website allows you to create dedicated sections for your
-                services and explain exactly what you offer.
-            </p>
-
-
-            <!-- Section 4 -->
-            <h2 class="section-title">
-                <span class="number">04</span>
-                Showcase Your Work
-            </h2>
-
-            <p>
-                A portfolio section can show potential customers examples
-                of previous projects. This can help visitors understand
-                the quality and type of work your business provides.
-            </p>
-
-
-            <!-- Section 5 -->
-            <h2 class="section-title">
-                <span class="number">05</span>
-                Make It Easy to Contact You
-            </h2>
-
-            <p>
-                A website can provide contact forms, email addresses,
-                phone numbers and other useful contact options. This makes
-                it easier for interested customers to get in touch.
-            </p>
-
-
-            <!-- Section 6 -->
-            <h2 class="section-title">
-                <span class="number">06</span>
-                Your Business Owns the Website
-            </h2>
-
-            <p>
-                Social media platforms are useful, but your website gives
-                your business its own online home. You control the
-                information, structure and content presented to visitors.
-            </p>
-
-
-            <!-- Conclusion -->
-            <div class="conclusion">
-
-                <h2>Conclusion</h2>
-
-                <p>
-                    A website can be a valuable part of a small business's
-                    online presence. It can help communicate your services,
-                    showcase your work and make it easier for potential
-                    customers to contact you.
+                <p class="article-intro">
+                    In today's digital world, having a professional online
+                    presence is important for many small businesses. A website
+                    gives customers a place where they can learn about your
+                    business, services and contact information.
                 </p>
 
-            </div>
+
+                <!-- Highlight -->
+                <div class="article-highlight">
+
+                    <strong>Quick Takeaway</strong>
+
+                    <p>
+                        A professional website gives your business a dedicated
+                        online home where customers can discover your services,
+                        learn about your work and contact you.
+                    </p>
+
+                </div>
 
 
-            <!-- CTA -->
-            <div class="article-cta">
+                <!-- 01 -->
+                <section class="article-section">
 
-                <h2>Need a Professional Website?</h2>
+                    <h2>
+                        <span class="section-number">01</span>
+                        Build Trust With Customers
+                    </h2>
 
-                <p>
-                    Looking for a modern website for your business?
-                    Explore my web development and website design services.
-                </p>
+                    <p>
+                        A professional website can make a business look more
+                        established and trustworthy. Customers can learn about
+                        your services, see your work and find important
+                        information in one place.
+                    </p>
 
-                <a href="index.html#contact">
-                    Contact Me ↗
-                </a>
-
-            </div>
+                </section>
 
 
-            <!-- Back to Blog -->
-            <div class="back-blog">
+                <!-- 02 -->
+                <section class="article-section">
 
-                <a href="blog.html">
-                    ← Back to Blog
-                </a>
+                    <h2>
+                        <span class="section-number">02</span>
+                        Help Customers Find Your Business
+                    </h2>
 
-            </div>
+                    <p>
+                        Many people use search engines when looking for a local
+                        service or business. A well-structured website gives
+                        your business an opportunity to appear in relevant
+                        searches.
+                    </p>
 
-        </article>
+                </section>
+
+
+                <!-- 03 -->
+                <section class="article-section">
+
+                    <h2>
+                        <span class="section-number">03</span>
+                        Show Your Services Clearly
+                    </h2>
+
+                    <p>
+                        Social media posts can disappear quickly in a busy
+                        feed. A website allows you to create dedicated sections
+                        for your services and explain exactly what you offer.
+                    </p>
+
+                </section>
+
+
+                <!-- 04 -->
+                <section class="article-section">
+
+                    <h2>
+                        <span class="section-number">04</span>
+                        Showcase Your Work
+                    </h2>
+
+                    <p>
+                        A portfolio section can show potential customers
+                        examples of previous projects. This can help visitors
+                        understand the quality and type of work your business
+                        provides.
+                    </p>
+
+                </section>
+
+
+                <!-- 05 -->
+                <section class="article-section">
+
+                    <h2>
+                        <span class="section-number">05</span>
+                        Make It Easy to Contact You
+                    </h2>
+
+                    <p>
+                        A website can provide contact forms, email addresses,
+                        phone numbers and other useful contact options. This
+                        makes it easier for interested customers to get in touch.
+                    </p>
+
+                </section>
+
+
+                <!-- 06 -->
+                <section class="article-section">
+
+                    <h2>
+                        <span class="section-number">06</span>
+                        Your Business Owns the Website
+                    </h2>
+
+                    <p>
+                        Social media platforms are useful, but your website
+                        gives your business its own online home. You control
+                        the information, structure and content presented to
+                        visitors.
+                    </p>
+
+                </section>
+
+
+                <!-- Conclusion -->
+                <div class="article-conclusion">
+
+                    <h2>Conclusion</h2>
+
+                    <p>
+                        A website can be a valuable part of a small business's
+                        online presence. It can help communicate your services,
+                        showcase your work and make it easier for potential
+                        customers to contact you.
+                    </p>
+
+                </div>
+
+
+                <!-- CTA -->
+                <div class="article-cta">
+
+                    <h2>Need a Professional Website?</h2>
+
+                    <p>
+                        Looking for a modern website for your business?
+                        Explore my web development and website design services.
+                    </p>
+
+                    <a href="index.html#contact">
+                        Contact Me ↗
+                    </a>
+
+                </div>
+
+
+                <!-- Back -->
+                <div class="back-blog">
+
+                    <a href="blog.html">
+                        ← Back to Blog
+                    </a>
+
+                </div>
+
+            </article>
+
+        </div>
 
     </main>
 
 
     <!-- Footer -->
-    <footer>
+    <footer class="footer">
 
-        <p>
-            © 2026 Mohammad Abdullah. All Rights Reserved.
-        </p>
+        <div class="container footer-inner">
+
+            <p>
+                © 2026 Mohammad Abdullah. All Rights Reserved.
+            </p>
+
+            <a href="#" class="back-top">
+                Back to top ↑
+            </a>
+
+        </div>
 
     </footer>
 
