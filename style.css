@@ -1180,3 +1180,58 @@ h2 span {
 .article-page a {
     font-family: "Inter", sans-serif !important;
 }
+/* ================================
+   PREMIUM BLOG PAGE
+================================ */
+
+.blog-hero h1,
+.blog-card h2 {
+    font-family: "Space Grotesk", sans-serif;
+}
+
+.blog-hero p,
+.blog-card p,
+.blog-category,
+.blog-card a {
+    font-family: "Inter", sans-serif;
+}
+
+.blog-hero h1 {
+    font-weight: 600;
+    letter-spacing: -1.5px;
+}
+
+.blog-card h2 {
+    font-weight: 600;
+    letter-spacing: -0.8px;
+}
+
+.blog-card {
+    border: 1px solid var(--line);
+    background: var(--surface);
+    border-radius: var(--radius);
+    padding: 32px;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.blog-card:hover {
+    transform: translateY(-6px);
+    box-shadow: 0 18px 45px rgba(17,17,17,0.08);
+}
+
+.blog-category {
+    color: var(--accent-dark);
+    font-size: 12px;
+    font-weight: 700;
+    letter-spacing: 1.5px;
+    text-transform: uppercase;
+}
+
+.blog-card p {
+    color: var(--muted);
+    line-height: 1.8;
+}
+
+.blog-card a {
+    font-weight: 600;
+}
