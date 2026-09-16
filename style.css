@@ -1150,3 +1150,21 @@ h2 span {
     }
 
 }
+/* =========================
+   ARTICLE FONT MATCH
+========================= */
+
+.article-page,
+.article-page p,
+.article-page li,
+.article-page td,
+.article-page th {
+    font-family: "Inter", sans-serif;
+}
+
+.article-page h1,
+.article-page h2,
+.article-page h3,
+.article-page .blog-category {
+    font-family: "Space Grotesk", sans-serif;
+}
