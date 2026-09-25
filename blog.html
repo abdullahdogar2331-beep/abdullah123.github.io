@@ -676,6 +676,24 @@
         </p>
 
     </footer>
+    <script>
+    const menuToggle = document.getElementById("menuToggle");
+    const mobileMenu = document.getElementById("mobileMenu");
+
+    menuToggle.addEventListener("click", () => {
+        menuToggle.classList.toggle("active");
+        mobileMenu.classList.toggle("open");
+    });
+
+    const mobileLinks = mobileMenu.querySelectorAll("a");
+
+    mobileLinks.forEach(link => {
+        link.addEventListener("click", () => {
+            menuToggle.classList.remove("active");
+            mobileMenu.classList.remove("open");
+        });
+    });
+</script>
 
 </body>
 </html>
