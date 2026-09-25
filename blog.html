@@ -4,22 +4,485 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    <title>Blog | Mohammad Abdullah - Web Developer</title>
+    <title>Blog | Mohammad Abdullah</title>
 
-    <meta name="description" content="Web development, website design and small business website tips by Mohammad Abdullah.">
+    <meta name="description" content="Practical articles about websites, web development, website design and growing your online presence.">
 
-    <link rel="stylesheet" href="style.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Space+Grotesk:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Space+Grotesk:wght@400;500;600;700&display=swap" rel="stylesheet">
+
+    <style>
+
+        /* =========================
+           BLOG PAGE
+        ========================= */
+
+        :root {
+            --bg: #f6f4ef;
+            --surface: #ffffff;
+            --text: #171717;
+            --muted: #6b6b67;
+            --border: #dedbd3;
+            --accent: #a6b84a;
+            --accent-dark: #7e8d2e;
+            --dark: #191918;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            background: var(--bg);
+            color: var(--text);
+            font-family: "Inter", sans-serif;
+            line-height: 1.7;
+        }
+
+        a {
+            text-decoration: none;
+            color: inherit;
+        }
+
+        .container {
+            width: min(1160px, 90%);
+            margin: auto;
+        }
+
+
+        /* =========================
+           HEADER
+        ========================= */
+
+        header {
+            position: sticky;
+            top: 0;
+            z-index: 100;
+            background: rgba(246, 244, 239, 0.94);
+            backdrop-filter: blur(14px);
+            border-bottom: 1px solid rgba(0, 0, 0, 0.07);
+        }
+
+        .navbar {
+            width: min(1160px, 90%);
+            margin: auto;
+            min-height: 78px;
+
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 30px;
+        }
+
+        .logo {
+            font-family: "Space Grotesk", sans-serif;
+            font-size: 21px;
+            font-weight: 700;
+            letter-spacing: -0.5px;
+        }
+
+        .nav-links {
+            display: flex;
+            align-items: center;
+            gap: 28px;
+        }
+
+        .nav-links a {
+            position: relative;
+            font-size: 14px;
+            font-weight: 500;
+            color: #555550;
+            transition: 0.3s ease;
+        }
+
+        .nav-links a:hover,
+        .nav-links a.active {
+            color: var(--text);
+        }
+
+        .nav-links a.active::after {
+            content: "";
+            position: absolute;
+            left: 0;
+            bottom: -7px;
+            width: 100%;
+            height: 2px;
+            background: var(--accent);
+        }
+
+
+        /* =========================
+           HERO
+        ========================= */
+
+        .blog-hero {
+            padding: 115px 0 90px;
+            border-bottom: 1px solid var(--border);
+        }
+
+        .hero-inner {
+            max-width: 850px;
+        }
+
+        .eyebrow {
+            display: inline-flex;
+            align-items: center;
+            gap: 9px;
+
+            margin-bottom: 22px;
+
+            font-size: 12px;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            color: var(--accent-dark);
+        }
+
+        .eyebrow::before {
+            content: "";
+            width: 28px;
+            height: 1px;
+            background: var(--accent-dark);
+        }
+
+        .blog-hero h1 {
+            font-family: "Space Grotesk", sans-serif;
+            font-size: clamp(52px, 8vw, 92px);
+            line-height: 0.98;
+            letter-spacing: -4px;
+            font-weight: 600;
+            max-width: 800px;
+        }
+
+        .blog-hero h1 span {
+            color: var(--accent-dark);
+        }
+
+        .blog-hero p {
+            max-width: 650px;
+            margin-top: 28px;
+
+            font-size: 18px;
+            line-height: 1.8;
+            color: var(--muted);
+        }
+
+
+        /* =========================
+           BLOG SECTION
+        ========================= */
+
+        .blog-section {
+            padding: 90px 0 110px;
+        }
+
+        .section-top {
+            display: flex;
+            align-items: flex-end;
+            justify-content: space-between;
+            gap: 30px;
+            margin-bottom: 38px;
+        }
+
+        .section-top h2 {
+            font-family: "Space Grotesk", sans-serif;
+            font-size: 34px;
+            line-height: 1.15;
+            letter-spacing: -1.2px;
+        }
+
+        .section-top p {
+            max-width: 410px;
+            color: var(--muted);
+            font-size: 14px;
+        }
+
+
+        /* =========================
+           BLOG GRID
+        ========================= */
+
+        .blog-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 22px;
+        }
+
+        .blog-card {
+            position: relative;
+            min-height: 430px;
+
+            background: var(--surface);
+            border: 1px solid var(--border);
+
+            display: flex;
+            flex-direction: column;
+
+            transition:
+                transform 0.35s ease,
+                box-shadow 0.35s ease,
+                border-color 0.35s ease;
+
+            overflow: hidden;
+        }
+
+        .blog-card::before {
+            content: "";
+            display: block;
+            width: 100%;
+            height: 4px;
+            background: var(--accent);
+            transform: scaleX(0);
+            transform-origin: left;
+            transition: transform 0.35s ease;
+        }
+
+        .blog-card:hover {
+            transform: translateY(-8px);
+            border-color: #c9c5ba;
+            box-shadow: 0 20px 45px rgba(20, 20, 18, 0.09);
+        }
+
+        .blog-card:hover::before {
+            transform: scaleX(1);
+        }
+
+        .blog-content {
+            padding: 38px 34px 32px;
+            display: flex;
+            flex-direction: column;
+            flex: 1;
+        }
+
+
+        /* =========================
+           CATEGORY
+        ========================= */
+
+        .blog-category {
+            display: inline-flex;
+            align-self: flex-start;
+
+            padding: 6px 11px;
+
+            border: 1px solid #d8d5cc;
+            background: #f8f7f3;
+
+            font-size: 11px;
+            font-weight: 700;
+            letter-spacing: 1px;
+            text-transform: uppercase;
+
+            color: #65655f;
+        }
+
+
+        /* =========================
+           CARD TYPOGRAPHY
+        ========================= */
+
+        .blog-card h2 {
+            margin-top: 27px;
+
+            font-family: "Space Grotesk", sans-serif;
+            font-size: 27px;
+            line-height: 1.22;
+            letter-spacing: -0.8px;
+            font-weight: 600;
+        }
+
+        .blog-card p {
+            margin-top: 18px;
+
+            font-size: 14px;
+            line-height: 1.8;
+            color: var(--muted);
+        }
+
+
+        /* =========================
+           READ ARTICLE
+        ========================= */
+
+        .blog-card a.read-more {
+            margin-top: auto;
+            padding-top: 30px;
+
+            display: inline-flex;
+            align-items: center;
+            gap: 9px;
+
+            font-size: 13px;
+            font-weight: 700;
+            color: var(--text);
+
+            transition: 0.3s ease;
+        }
+
+        .blog-card a.read-more span {
+            transition: transform 0.3s ease;
+        }
+
+        .blog-card a.read-more:hover {
+            color: var(--accent-dark);
+        }
+
+        .blog-card a.read-more:hover span {
+            transform: translateX(5px);
+        }
+
+
+        /* =========================
+           FEATURED STYLE
+        ========================= */
+
+        .blog-card.featured {
+            background: var(--dark);
+            color: #f7f5ef;
+            border-color: var(--dark);
+        }
+
+        .blog-card.featured .blog-category {
+            background: transparent;
+            border-color: #44443f;
+            color: #d6d6cf;
+        }
+
+        .blog-card.featured p {
+            color: #aaa9a2;
+        }
+
+        .blog-card.featured a.read-more {
+            color: #f7f5ef;
+        }
+
+        .blog-card.featured:hover {
+            box-shadow: 0 24px 50px rgba(0, 0, 0, 0.18);
+        }
+
+
+        /* =========================
+           FOOTER
+        ========================= */
+
+        footer {
+            background: var(--dark);
+            color: #aaa9a2;
+            text-align: center;
+
+            padding: 30px 20px;
+
+            font-size: 13px;
+        }
+
+        footer strong {
+            color: #f4f2eb;
+            font-weight: 600;
+        }
+
+
+        /* =========================
+           MOBILE
+        ========================= */
+
+        @media (max-width: 900px) {
+
+            .nav-links {
+                gap: 16px;
+            }
+
+            .nav-links a {
+                font-size: 13px;
+            }
+
+            .blog-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .blog-card {
+                min-height: auto;
+            }
+
+            .blog-content {
+                min-height: 390px;
+            }
+        }
+
+
+        @media (max-width: 650px) {
+
+            .navbar {
+                min-height: 70px;
+            }
+
+            .logo {
+                font-size: 18px;
+            }
+
+            .nav-links {
+                display: none;
+            }
+
+            .blog-hero {
+                padding: 80px 0 65px;
+            }
+
+            .blog-hero h1 {
+                font-size: 55px;
+                letter-spacing: -2.5px;
+            }
+
+            .blog-hero p {
+                font-size: 16px;
+                margin-top: 22px;
+            }
+
+            .blog-section {
+                padding: 65px 0 80px;
+            }
+
+            .section-top {
+                display: block;
+            }
+
+            .section-top h2 {
+                font-size: 29px;
+            }
+
+            .section-top p {
+                margin-top: 12px;
+            }
+
+            .blog-content {
+                padding: 30px 27px;
+            }
+
+            .blog-card h2 {
+                font-size: 25px;
+            }
+        }
+
+    </style>
 </head>
+
 
 <body>
 
     <!-- Header -->
     <header>
         <nav class="navbar">
-            <a href="index.html" class="logo">Mohammad Abdullah</a>
+
+            <a href="index.html" class="logo">
+                Mohammad Abdullah
+            </a>
 
             <div class="nav-links">
                 <a href="index.html">Home</a>
@@ -29,20 +492,37 @@
                 <a href="blog.html" class="active">Blog</a>
                 <a href="index.html#contact">Contact</a>
             </div>
+
         </nav>
     </header>
 
 
-    <!-- Blog Hero -->
+    <!-- Hero -->
     <section class="blog-hero">
-        <div class="container">
-            <h1>My Blog</h1>
 
-            <p>
-                Practical tips about websites, web development,
-                design and growing your online presence.
-            </p>
+        <div class="container">
+
+            <div class="hero-inner">
+
+                <div class="eyebrow">
+                    Insights & Articles
+                </div>
+
+                <h1>
+                    Ideas that help your
+                    <span>business grow.</span>
+                </h1>
+
+                <p>
+                    Practical insights about websites, web development,
+                    design, SEO and building a stronger online presence
+                    for your business.
+                </p>
+
+            </div>
+
         </div>
+
     </section>
 
 
@@ -51,10 +531,25 @@
 
         <div class="container">
 
+            <div class="section-top">
+
+                <div>
+                    <h2>Latest Articles</h2>
+                </div>
+
+                <p>
+                    Simple, practical and useful ideas for businesses
+                    looking to improve their digital presence.
+                </p>
+
+            </div>
+
+
             <div class="blog-grid">
 
+
                 <!-- Article 1 -->
-                <article class="blog-card">
+                <article class="blog-card featured">
 
                     <div class="blog-content">
 
@@ -72,8 +567,12 @@
                             and create a strong online presence.
                         </p>
 
-                        <a href="blog-small-business-website.html">
-                            Read Article →
+                        <a
+                            href="blog-small-business-website.html"
+                            class="read-more"
+                        >
+                            Read Article
+                            <span>→</span>
                         </a>
 
                     </div>
@@ -91,17 +590,23 @@
                         </span>
 
                         <h2>
-    Website vs Facebook Page: Which Is Better for a Business?
-</h2>
+                            Website vs Facebook Page:
+                            Which Is Better for a Business?
+                        </h2>
 
                         <p>
-                            Learn about common website design mistakes
-                            that can make a website difficult to use.
+                            Understand the difference between owning
+                            a website and relying only on a social media
+                            page for your business.
                         </p>
 
-                       <a href="blog-website-vs-facebook.html">
-    Read Article →
-</a>
+                        <a
+                            href="blog-website-vs-facebook.html"
+                            class="read-more"
+                        >
+                            Read Article
+                            <span>→</span>
+                        </a>
 
                     </div>
 
@@ -114,25 +619,32 @@
                     <div class="blog-content">
 
                         <span class="blog-category">
-                            Web Development
+                            Online Presence
                         </span>
 
                         <h2>
-                            Website vs Social Media: Which One Does Your Business Need?
+                            Website vs Social Media:
+                            Which One Does Your Business Need?
                         </h2>
 
                         <p>
                             Discover why having your own website can be
-                            valuable even when your business already uses social media.
+                            valuable even when your business already uses
+                            social media.
                         </p>
 
-                        <a href="#">
-                            Coming Soon →
+                        <a
+                            href="#"
+                            class="read-more"
+                        >
+                            Coming Soon
+                            <span>→</span>
                         </a>
 
                     </div>
 
                 </article>
+
 
             </div>
 
@@ -143,9 +655,12 @@
 
     <!-- Footer -->
     <footer>
+
         <p>
-            © 2026 Mohammad Abdullah. All Rights Reserved.
+            © 2026 <strong>Mohammad Abdullah</strong>.
+            All Rights Reserved.
         </p>
+
     </footer>
 
 </body>
