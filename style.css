@@ -1255,3 +1255,107 @@ h2 span {
 .blog-card a {
     font-weight: 600;
 }
+/* =========================
+   MOBILE HAMBURGER MENU
+========================= */
+
+.menu-toggle {
+    display: none;
+    width: 44px;
+    height: 44px;
+    border: 1px solid var(--border);
+    background: var(--surface);
+    cursor: pointer;
+
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    gap: 5px;
+
+    padding: 0;
+}
+
+.menu-toggle span {
+    width: 19px;
+    height: 2px;
+    background: var(--text);
+    transition: 0.3s ease;
+}
+
+.mobile-menu {
+    display: none;
+}
+
+
+/* Mobile */
+@media (max-width: 650px) {
+
+    .navbar {
+        position: relative;
+    }
+
+    .menu-toggle {
+        display: flex;
+    }
+
+    .mobile-menu {
+        position: absolute;
+        top: calc(100% + 1px);
+        left: 0;
+        right: 0;
+
+        background: var(--surface);
+        border-bottom: 1px solid var(--border);
+
+        padding: 12px 5% 20px;
+
+        display: flex;
+        flex-direction: column;
+
+        opacity: 0;
+        visibility: hidden;
+        transform: translateY(-10px);
+
+        transition:
+            opacity 0.25s ease,
+            transform 0.25s ease,
+            visibility 0.25s ease;
+    }
+
+    .mobile-menu.open {
+        opacity: 1;
+        visibility: visible;
+        transform: translateY(0);
+    }
+
+    .mobile-menu a {
+        padding: 15px 5px;
+
+        border-bottom: 1px solid #e7e4dc;
+
+        font-size: 14px;
+        font-weight: 600;
+        color: var(--text);
+    }
+
+    .mobile-menu a:last-child {
+        border-bottom: none;
+    }
+
+    .mobile-menu a.active {
+        color: var(--accent-dark);
+    }
+
+    /* Hamburger → X */
+    .menu-toggle.active span:nth-child(1) {
+        transform: translateY(7px) rotate(45deg);
+    }
+
+    .menu-toggle.active span:nth-child(2) {
+        opacity: 0;
+    }
+
+    .menu-toggle.active span:nth-child(3) {
+        transform: translateY(-7px) rotate(-45deg);
+    }
+}
