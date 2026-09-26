@@ -1687,12 +1687,12 @@ h2 span {
     cursor: wait;
 }
 /* =========================================
-   WHATSAPP BUTTON - FIXED POSITION
+   WHATSAPP GLOWING BUTTON
 ========================================= */
 
 .whatsapp-button {
     position: fixed;
-    right: 24px;
+    left: 24px;
     bottom: 24px;
 
     display: flex;
@@ -1711,14 +1711,17 @@ h2 span {
 
     border-radius: 50px;
 
+    z-index: 9998;
+
     box-shadow:
         0 0 12px rgba(37, 211, 102, 0.7),
         0 0 28px rgba(37, 211, 102, 0.5);
 
-    z-index: 99999;
-
     animation: whatsappGlow 2s infinite;
-    transition: transform 0.25s ease, box-shadow 0.25s ease;
+
+    transition:
+        transform 0.25s ease,
+        box-shadow 0.25s ease;
 }
 
 .whatsapp-icon {
@@ -1735,6 +1738,7 @@ h2 span {
 }
 
 @keyframes whatsappGlow {
+
     0%, 100% {
         box-shadow:
             0 0 12px rgba(37, 211, 102, 0.6),
@@ -1748,11 +1752,17 @@ h2 span {
     }
 }
 
-/* Mobile */
+
+/* =========================================
+   AI CHATBOT + WHATSAPP MOBILE POSITION
+========================================= */
+
 @media (max-width: 600px) {
+
     .whatsapp-button {
-        right: 16px;
-        bottom: 90px;
+        left: 16px;
+        bottom: 16px;
+        right: auto;
     }
 
     .whatsapp-text {
