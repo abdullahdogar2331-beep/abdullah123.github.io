@@ -1565,3 +1565,20 @@ h2 span {
     }
 
 }
+@media (max-width: 900px) {
+
+    .nav-links.open {
+        background: #f1f1ee !important;
+        border: 1px solid #d8d8d3 !important;
+    }
+
+    .nav-links.open .nav-link {
+        color: #222222 !important;
+    }
+
+    .nav-links.open .nav-link:hover {
+        background: #e5e5df !important;
+        color: #8dbb00 !important;
+    }
+
+}
