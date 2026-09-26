@@ -2037,3 +2037,270 @@ h2 span {
         margin-bottom: 35px;
     }
 }
+/* =========================================
+   PREMIUM PORTFOLIO POLISH
+========================================= */
+
+/* Smooth scrolling */
+html {
+    scroll-behavior: smooth;
+}
+
+
+/* =========================================
+   SECTION REVEAL
+========================================= */
+
+.reveal {
+    opacity: 0;
+    transform: translateY(35px);
+    transition:
+        opacity 0.8s ease,
+        transform 0.8s ease;
+}
+
+.reveal.visible {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+
+/* =========================================
+   PREMIUM BUTTON EFFECT
+========================================= */
+
+button,
+a {
+    transition:
+        transform 0.25s ease,
+        box-shadow 0.25s ease,
+        background 0.25s ease,
+        color 0.25s ease;
+}
+
+
+/* =========================================
+   PROJECT CARDS
+========================================= */
+
+.project-card {
+    transition:
+        transform 0.35s ease,
+        box-shadow 0.35s ease;
+}
+
+.project-card:hover {
+    transform: translateY(-8px);
+    box-shadow: 0 18px 45px rgba(0, 0, 0, 0.10);
+}
+
+
+/* =========================================
+   SERVICE CARDS
+========================================= */
+
+.service-card {
+    transition:
+        transform 0.35s ease,
+        box-shadow 0.35s ease;
+}
+
+.service-card:hover {
+    transform: translateY(-8px);
+    box-shadow: 0 18px 45px rgba(0, 0, 0, 0.12);
+}
+
+
+/* =========================================
+   SKILL HOVER
+========================================= */
+
+.skill-card,
+.skill-item {
+    transition:
+        transform 0.3s ease,
+        border-color 0.3s ease,
+        box-shadow 0.3s ease;
+}
+
+.skill-card:hover,
+.skill-item:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 12px 30px rgba(0, 0, 0, 0.08);
+}
+
+
+/* =========================================
+   NAVIGATION LINK EFFECT
+========================================= */
+
+.nav-link {
+    position: relative;
+}
+
+.nav-link::after {
+    content: "";
+    position: absolute;
+
+    left: 0;
+    bottom: -5px;
+
+    width: 0;
+    height: 2px;
+
+    background: #c7ff35;
+
+    transition: width 0.3s ease;
+}
+
+.nav-link:hover::after,
+.nav-link.active::after {
+    width: 100%;
+}
+
+
+/* =========================================
+   CTA BUTTON EFFECT
+========================================= */
+
+.btn,
+.button,
+.cta-button {
+    transition:
+        transform 0.25s ease,
+        box-shadow 0.25s ease;
+}
+
+.btn:hover,
+.button:hover,
+.cta-button:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.12);
+}
+
+
+/* =========================================
+   IMAGE HOVER
+========================================= */
+
+.project-card img,
+.service-card img {
+    transition: transform 0.5s ease;
+}
+
+.project-card:hover img,
+.service-card:hover img {
+    transform: scale(1.04);
+}
+
+
+/* =========================================
+   CASE STUDY HOVER
+========================================= */
+
+.case-card {
+    transition:
+        transform 0.35s ease,
+        box-shadow 0.35s ease,
+        border-color 0.35s ease;
+}
+
+.case-card:hover {
+    transform: translateY(-8px);
+    border-color: #c7ff35;
+    box-shadow: 0 20px 45px rgba(0, 0, 0, 0.10);
+}
+
+
+/* =========================================
+   HOW I WORK
+========================================= */
+
+.work-step {
+    transition:
+        background 0.3s ease,
+        transform 0.3s ease;
+}
+
+.work-step:hover {
+    background: #181818;
+    transform: translateY(-4px);
+}
+
+.work-number {
+    transition: transform 0.3s ease;
+}
+
+.work-step:hover .work-number {
+    transform: translateX(5px);
+}
+
+
+/* =========================================
+   FAQ
+========================================= */
+
+.faq-item summary {
+    transition: color 0.25s ease;
+}
+
+.faq-item summary:hover {
+    color: #8dbb00;
+}
+
+
+/* =========================================
+   CHATBOT BUTTON
+========================================= */
+
+#aiChatButton {
+    transition:
+        transform 0.25s ease,
+        box-shadow 0.25s ease;
+}
+
+#aiChatButton:hover {
+    transform: translateY(-3px) scale(1.03);
+    box-shadow: 0 12px 30px rgba(0, 0, 0, 0.18);
+}
+
+
+/* =========================================
+   CONTACT INPUTS
+========================================= */
+
+input,
+textarea,
+select {
+    transition:
+        border-color 0.25s ease,
+        box-shadow 0.25s ease;
+}
+
+input:focus,
+textarea:focus,
+select:focus {
+    outline: none;
+    border-color: #8dbb00;
+    box-shadow: 0 0 0 3px rgba(199, 255, 53, 0.18);
+}
+
+
+/* =========================================
+   REDUCED MOTION ACCESSIBILITY
+========================================= */
+
+@media (prefers-reduced-motion: reduce) {
+
+    html {
+        scroll-behavior: auto;
+    }
+
+    *,
+    *::before,
+    *::after {
+        animation-duration: 0.01ms !important;
+        animation-iteration-count: 1 !important;
+        transition-duration: 0.01ms !important;
+    }
+}
