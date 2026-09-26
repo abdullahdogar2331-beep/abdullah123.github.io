@@ -1361,3 +1361,62 @@ h2 span {
         transform: translateY(-7px) rotate(-45deg);
     }
 }
+/* =========================================
+   HOME MOBILE HAMBURGER — FINAL FIX
+========================================= */
+
+@media (max-width: 900px) {
+
+    .menu-toggle {
+        display: flex !important;
+        width: 44px !important;
+        height: 44px !important;
+        padding: 0 !important;
+        margin-left: auto !important;
+
+        align-items: center !important;
+        justify-content: center !important;
+        flex-direction: column !important;
+        gap: 5px !important;
+
+        background: #ffffff !important;
+        border: 1px solid #deded9 !important;
+        border-radius: 9px !important;
+
+        cursor: pointer !important;
+        position: relative !important;
+        z-index: 10003 !important;
+    }
+
+    .menu-toggle span {
+        display: block !important;
+        width: 20px !important;
+        height: 2px !important;
+        margin: 0 !important;
+        padding: 0 !important;
+
+        background: #171717 !important;
+        border-radius: 2px !important;
+
+        transition: transform 0.25s ease,
+                    opacity 0.25s ease !important;
+    }
+
+    /* Hide desktop navigation */
+    .nav-links {
+        display: none !important;
+    }
+
+    /* Hamburger → X */
+    .menu-toggle.active span:nth-child(1) {
+        transform: translateY(7px) rotate(45deg) !important;
+    }
+
+    .menu-toggle.active span:nth-child(2) {
+        opacity: 0 !important;
+    }
+
+    .menu-toggle.active span:nth-child(3) {
+        transform: translateY(-7px) rotate(-45deg) !important;
+    }
+}
