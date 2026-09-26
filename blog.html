@@ -1,28 +1,21 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
-
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
     <title>Blog | Mohammad Abdullah</title>
-
-    <meta name="description"
-        content="Practical articles about websites, web development, website design, SEO and growing your online presence.">
+    <meta name="description" content="Practical articles about websites, web development, website design, SEO and growing your online presence.">
 
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-
-    <link
-        href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Space+Grotesk:wght@400;500;600;700&display=swap"
-        rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Space+Grotesk:wght@400;500;600;700&display=swap" rel="stylesheet">
 
     <style>
-
-        /* =========================================
-           BLOG PAGE — COMPLETE INDEPENDENT STYLE
-        ========================================= */
+        /* =========================================================
+           BLOG PAGE — FULLY INDEPENDENT STYLES
+           Does NOT depend on portfolio style.css
+        ========================================================= */
 
         :root {
             --blog-bg: #f6f4ef;
@@ -62,26 +55,19 @@
             font: inherit;
         }
 
-        .blog-container {
-            width: min(1160px, 90%);
-            margin: auto;
-        }
-
-
-        /* =========================================
+        /* =========================================================
            HEADER
-        ========================================= */
+        ========================================================= */
 
         .blog-header {
             position: sticky;
             top: 0;
             left: 0;
             width: 100%;
-            z-index: 9999;
-
-            background: rgba(246, 244, 239, 0.96);
+            z-index: 10000;
+            background: rgba(246, 244, 239, 0.97);
             backdrop-filter: blur(14px);
-
+            -webkit-backdrop-filter: blur(14px);
             border-bottom: 1px solid rgba(0, 0, 0, 0.07);
         }
 
@@ -89,11 +75,9 @@
             width: min(1160px, 90%);
             min-height: 78px;
             margin: auto;
-
             display: flex;
             align-items: center;
             justify-content: space-between;
-
             position: relative;
         }
 
@@ -105,10 +89,9 @@
             white-space: nowrap;
         }
 
-
-        /* =========================================
+        /* =========================================================
            DESKTOP NAV
-        ========================================= */
+        ========================================================= */
 
         .blog-nav-links {
             display: flex;
@@ -118,95 +101,82 @@
 
         .blog-nav-links a {
             position: relative;
-
             color: #555550;
-
             font-size: 14px;
             font-weight: 500;
-
             transition: color 0.25s ease;
         }
 
-        .blog-nav-links a:hover {
-            color: var(--blog-text);
-        }
-
+        .blog-nav-links a:hover,
         .blog-nav-links a.active {
             color: var(--blog-text);
         }
 
         .blog-nav-links a.active::after {
             content: "";
-
             position: absolute;
-
             left: 0;
             bottom: -8px;
-
             width: 100%;
             height: 2px;
-
             background: var(--blog-accent);
         }
 
-
-        /* =========================================
+        /* =========================================================
            HAMBURGER
-        ========================================= */
+        ========================================================= */
 
         .blog-menu-button {
             display: none;
-
             width: 44px;
             height: 44px;
-
+            flex: 0 0 44px;
             padding: 0;
-
             border: 1px solid var(--blog-border);
-            border-radius: 8px;
-
+            border-radius: 9px;
             background: var(--blog-surface);
-
+            color: var(--blog-text);
             cursor: pointer;
-
             align-items: center;
             justify-content: center;
             flex-direction: column;
-
             gap: 5px;
-
             position: relative;
-            z-index: 10002;
+            z-index: 10003;
+            appearance: none;
+            -webkit-appearance: none;
         }
 
         .blog-menu-button span {
             display: block;
-
             width: 20px;
             height: 2px;
-
             border-radius: 2px;
-
             background: var(--blog-text);
-
-            transition:
-                transform 0.25s ease,
-                opacity 0.25s ease;
+            transition: transform 0.25s ease, opacity 0.25s ease;
         }
 
+        .blog-menu-button:focus-visible {
+            outline: 2px solid var(--blog-accent-dark);
+            outline-offset: 3px;
+        }
 
-        /* =========================================
+        /* =========================================================
            MOBILE MENU
-        ========================================= */
+        ========================================================= */
 
         .blog-mobile-menu {
             display: none;
         }
 
-
-        /* =========================================
+        /* =========================================================
            HERO
-        ========================================= */
+        ========================================================= */
+
+        .blog-container {
+            width: min(1160px, 90%);
+            margin: auto;
+        }
 
         .blog-hero {
             padding: 115px 0 90px;
@@ -221,37 +191,27 @@
             display: inline-flex;
             align-items: center;
             gap: 9px;
-
             margin-bottom: 22px;
-
             color: var(--blog-accent-dark);
-
             font-size: 12px;
             font-weight: 700;
-
             text-transform: uppercase;
             letter-spacing: 2px;
         }
 
         .blog-eyebrow::before {
             content: "";
-
             width: 28px;
             height: 1px;
-
             background: var(--blog-accent-dark);
         }
 
         .blog-hero h1 {
             max-width: 800px;
-
             font-family: "Space Grotesk", sans-serif;
-
             font-size: clamp(52px, 8vw, 92px);
-
             line-height: 0.98;
             letter-spacing: -4px;
-
             font-weight: 600;
         }
 
@@ -261,19 +221,15 @@
 
         .blog-hero-description {
             max-width: 650px;
-
             margin-top: 28px;
-
             color: var(--blog-muted);
-
             font-size: 18px;
             line-height: 1.8;
         }
 
-
-        /* =========================================
+        /* =========================================================
            BLOG SECTION
-        ========================================= */
+        ========================================================= */
 
         .blog-section {
             padding: 90px 0 110px;
@@ -283,92 +239,61 @@
             display: flex;
             align-items: flex-end;
             justify-content: space-between;
-
             gap: 30px;
-
             margin-bottom: 38px;
         }
 
         .blog-section-top h2 {
             font-family: "Space Grotesk", sans-serif;
-
             font-size: 34px;
             line-height: 1.15;
-
             letter-spacing: -1.2px;
         }
 
         .blog-section-top p {
             max-width: 410px;
-
             color: var(--blog-muted);
-
             font-size: 14px;
         }
 
-
-        /* =========================================
-           BLOG GRID
-        ========================================= */
+        /* =========================================================
+           BLOG GRID + CARDS
+        ========================================================= */
 
         .blog-grid {
             display: grid;
-
             grid-template-columns: repeat(3, 1fr);
-
             gap: 22px;
         }
 
-
-        /* =========================================
-           BLOG CARD
-        ========================================= */
-
         .blog-card {
             position: relative;
-
             min-height: 430px;
-
             background: var(--blog-dark);
-
             color: #f7f5ef;
-
             border: 1px solid var(--blog-dark);
-
             display: flex;
             flex-direction: column;
-
             overflow: hidden;
-
-            transition:
-                transform 0.35s ease,
-                box-shadow 0.35s ease;
+            transition: transform 0.35s ease, box-shadow 0.35s ease;
         }
 
         .blog-card::before {
             content: "";
-
             position: absolute;
-
             top: 0;
             left: 0;
-
             width: 100%;
             height: 4px;
-
             background: var(--blog-accent);
-
             transform: scaleX(0);
             transform-origin: left;
-
             transition: transform 0.35s ease;
         }
 
         .blog-card:hover {
             transform: translateY(-8px);
-
-            box-shadow:
-                0 24px 50px rgba(0, 0, 0, 0.18);
+            box-shadow: 0 24px 50px rgba(0, 0, 0, 0.18);
         }
 
         .blog-card:hover::before {
@@ -377,87 +302,49 @@
 
         .blog-card-content {
             min-height: 430px;
-
             padding: 38px 34px 32px;
-
             display: flex;
             flex-direction: column;
         }
 
-
-        /* =========================================
-           CATEGORY
-        ========================================= */
-
         .blog-category {
             display: inline-flex;
-
             align-self: flex-start;
-
             padding: 6px 11px;
-
             border: 1px solid #44443f;
-
             background: transparent;
-
             color: #d6d6cf;
-
             font-size: 11px;
             font-weight: 700;
-
             letter-spacing: 1px;
-
             text-transform: uppercase;
         }
 
-
-        /* =========================================
-           CARD TEXT
-        ========================================= */
-
         .blog-card h2 {
             margin-top: 27px;
-
             font-family: "Space Grotesk", sans-serif;
-
             font-size: 27px;
-
             line-height: 1.22;
-
             letter-spacing: -0.8px;
-
             font-weight: 600;
         }
 
         .blog-card p {
             margin-top: 18px;
-
             color: #aaa9a2;
-
             font-size: 14px;
-
             line-height: 1.8;
         }
-
-
-        /* =========================================
-           READ MORE
-        ========================================= */
 
         .blog-read-more {
             margin-top: auto;
             padding-top: 30px;
-
             display: inline-flex;
             align-items: center;
-
             gap: 9px;
-
             color: #f7f5ef;
-
             font-size: 13px;
             font-weight: 700;
-
             transition: color 0.25s ease;
         }
 
@@ -473,20 +360,15 @@
             transform: translateX(5px);
         }
 
-
-        /* =========================================
+        /* =========================================================
            FOOTER
-        ========================================= */
+        ========================================================= */
 
         .blog-footer {
             padding: 30px 20px;
-
             background: var(--blog-dark);
-
             color: #aaa9a2;
-
             text-align: center;
-
             font-size: 13px;
         }
 
@@ -495,13 +377,11 @@
             font-weight: 600;
         }
 
-
-        /* =========================================
+        /* =========================================================
            TABLET
-        ========================================= */
+        ========================================================= */
 
         @media (max-width: 900px) {
-
             .blog-grid {
                 grid-template-columns: 1fr;
             }
@@ -515,13 +395,11 @@
             }
         }
 
-
-        /* =========================================
+        /* =========================================================
            MOBILE
-        ========================================= */
+        ========================================================= */
 
         @media (max-width: 650px) {
-
             .blog-navbar {
                 min-height: 70px;
             }
@@ -530,75 +408,55 @@
                 font-size: 18px;
             }
 
-
-            /* Hide desktop navigation */
+            /* Hide desktop links */
             .blog-nav-links {
-                display: none;
+                display: none !important;
             }
 
-
-            /* Show hamburger */
+            /* FORCE hamburger to show */
             .blog-menu-button {
-                display: flex;
+                display: flex !important;
+                visibility: visible !important;
+                opacity: 1 !important;
             }
-
 
             /* Mobile dropdown */
             .blog-mobile-menu {
                 position: fixed;
-
                 top: 70px;
                 left: 0;
-
                 width: 100%;
-
+                max-height: calc(100vh - 70px);
+                overflow-y: auto;
                 background: var(--blog-dark);
-
                 border-top: 1px solid #33332f;
                 border-bottom: 1px solid #33332f;
-
                 padding: 8px 5% 15px;
-
-                display: flex;
+                display: flex !important;
                 flex-direction: column;
-
                 opacity: 0;
                 visibility: hidden;
                 pointer-events: none;
-
                 transform: translateY(-10px);
-
                 transition:
                     opacity 0.25s ease,
                     transform 0.25s ease,
                     visibility 0.25s ease;
-
-                z-index: 10001;
+                z-index: 10002;
             }
 
-
-            /* Open */
             .blog-mobile-menu.open {
                 opacity: 1;
-
                 visibility: visible;
-
                 pointer-events: auto;
-
                 transform: translateY(0);
             }
 
-
-            /* Mobile links */
             .blog-mobile-menu a {
                 display: block;
-
                 padding: 14px 5px;
-
                 border-bottom: 1px solid #33332f;
-
                 color: #f7f5ef;
-
                 font-size: 14px;
                 font-weight: 600;
             }
@@ -611,8 +469,7 @@
                 color: var(--blog-accent);
             }
 
-
-            /* Hamburger → X */
+            /* Hamburger -> X */
             .blog-menu-button.active span:nth-child(1) {
                 transform: translateY(7px) rotate(45deg);
             }
@@ -625,8 +482,6 @@
                 transform: translateY(-7px) rotate(-45deg);
             }
 
-
-            /* Hero */
             .blog-hero {
                 padding: 80px 0 65px;
             }
@@ -641,8 +496,6 @@
                 margin-top: 22px;
             }
 
-
-            /* Section */
             .blog-section {
                 padding: 65px 0 80px;
             }
@@ -659,8 +512,6 @@
                 margin-top: 12px;
             }
 
-
-            /* Cards */
             .blog-card-content {
                 padding: 30px 27px;
             }
@@ -668,124 +519,78 @@
             .blog-card h2 {
                 font-size: 25px;
             }
-
         }
 
+        @media (max-width: 420px) {
+            .blog-navbar,
+            .blog-container {
+                width: 92%;
+            }
+
+            .blog-hero h1 {
+                font-size: 47px;
+            }
+        }
     </style>
-
 </head>
-
 
 <body>
 
-
-    <!-- =========================================
+    <!-- =========================================================
          HEADER
-    ========================================= -->
+    ========================================================= -->
 
     <header class="blog-header">
-
         <nav class="blog-navbar">
 
             <a href="index.html" class="blog-logo">
                 Mohammad Abdullah
             </a>
 
-
             <!-- Desktop Navigation -->
-
             <div class="blog-nav-links">
-
-                <a href="index.html">
-                    Home
-                </a>
-
-                <a href="index.html#about">
-                    About
-                </a>
-
-                <a href="index.html#services">
-                    Services
-                </a>
-
-                <a href="index.html#work">
-                    Work
-                </a>
-
-                <a href="blog.html" class="active">
-                    Blog
-                </a>
-
-                <a href="index.html#contact">
-                    Contact
-                </a>
-
+                <a href="index.html">Home</a>
+                <a href="index.html#about">About</a>
+                <a href="index.html#services">Services</a>
+                <a href="index.html#work">Work</a>
+                <a href="blog.html" class="active">Blog</a>
+                <a href="index.html#contact">Contact</a>
             </div>
 
-
-            <!-- Hamburger -->
-
+            <!-- Mobile Hamburger -->
             <button
                 type="button"
                 class="blog-menu-button"
                 id="blogMenuButton"
                 aria-label="Open navigation menu"
                 aria-expanded="false"
+                aria-controls="blogMobileMenu"
             >
-
                 <span></span>
                 <span></span>
                 <span></span>
-
             </button>
-
-
-            <!-- Mobile Menu -->
-
-            <div
-                class="blog-mobile-menu"
-                id="blogMobileMenu"
-            >
-
-                <a href="index.html">
-                    Home
-                </a>
-
-                <a href="index.html#about">
-                    About
-                </a>
-
-                <a href="index.html#services">
-                    Services
-                </a>
-
-                <a href="index.html#work">
-                    Work
-                </a>
-
-                <a href="blog.html" class="active">
-                    Blog
-                </a>
-
-                <a href="index.html#contact">
-                    Contact
-                </a>
-
-            </div>
 
         </nav>
 
+        <!-- Mobile Navigation -->
+        <div class="blog-mobile-menu" id="blogMobileMenu">
+            <a href="index.html">Home</a>
+            <a href="index.html#about">About</a>
+            <a href="index.html#services">Services</a>
+            <a href="index.html#work">Work</a>
+            <a href="blog.html" class="active">Blog</a>
+            <a href="index.html#contact">Contact</a>
+        </div>
     </header>
 
 
-    <!-- =========================================
+    <!-- =========================================================
          HERO
-    ========================================= -->
+    ========================================================= -->
 
     <section class="blog-hero">
-
         <div class="blog-container">
-
             <div class="blog-hero-inner">
 
                 <div class="blog-eyebrow">
@@ -804,45 +609,33 @@
                 </p>
 
             </div>
-
         </div>
-
     </section>
 
 
-    <!-- =========================================
+    <!-- =========================================================
          BLOG POSTS
-    ========================================= -->
+    ========================================================= -->
 
     <section class="blog-section">
-
         <div class="blog-container">
 
             <div class="blog-section-top">
-
                 <div>
-
-                    <h2>
-                        Latest Articles
-                    </h2>
-
+                    <h2>Latest Articles</h2>
                 </div>
 
                 <p>
                     Simple, practical and useful ideas for businesses
                     looking to improve their digital presence.
                 </p>
-
             </div>
 
 
             <div class="blog-grid">
 
-
                 <!-- ARTICLE 1 -->
-
                 <article class="blog-card">
-
                     <div class="blog-card-content">
 
                         <span class="blog-category">
@@ -868,14 +661,11 @@
                         </a>
 
                     </div>
-
                 </article>
 
 
                 <!-- ARTICLE 2 -->
-
                 <article class="blog-card">
-
                     <div class="blog-card-content">
 
                         <span class="blog-category">
@@ -902,14 +692,11 @@
                         </a>
 
                     </div>
-
                 </article>
 
 
                 <!-- ARTICLE 3 -->
-
                 <article class="blog-card">
-
                     <div class="blog-card-content">
 
                         <span class="blog-category">
@@ -936,101 +723,70 @@
                         </a>
 
                     </div>
-
                 </article>
 
-
             </div>
-
         </div>
-
     </section>
 
 
-    <!-- =========================================
+    <!-- =========================================================
          FOOTER
-    ========================================= -->
+    ========================================================= -->
 
     <footer class="blog-footer">
-
         <p>
-            © 2026
-            <strong>Mohammad Abdullah</strong>.
+            © 2026 <strong>Mohammad Abdullah</strong>.
             All Rights Reserved.
         </p>
-
     </footer>
 
 
-    <!-- =========================================
+    <!-- =========================================================
          HAMBURGER JAVASCRIPT
-    ========================================= -->
+    ========================================================= -->
 
     <script>
+        (function () {
+            const menuButton = document.getElementById("blogMenuButton");
+            const mobileMenu = document.getElementById("blogMobileMenu");
 
-        const blogMenuButton =
-            document.getElementById("blogMenuButton");
+            if (!menuButton || !mobileMenu) return;
 
-        const blogMobileMenu =
-            document.getElementById("blogMobileMenu");
+            function closeMenu() {
+                mobileMenu.classList.remove("open");
+                menuButton.classList.remove("active");
+                menuButton.setAttribute("aria-expanded", "false");
+                menuButton.setAttribute("aria-label", "Open navigation menu");
+            }
 
+            function toggleMenu() {
+                const isOpen = mobileMenu.classList.toggle("open");
 
-        blogMenuButton.addEventListener("click", function () {
-
-            const isOpen =
-                blogMobileMenu.classList.toggle("open");
-
-            blogMenuButton.classList.toggle(
-                "active",
-                isOpen
-            );
-
-            blogMenuButton.setAttribute(
-                "aria-expanded",
-                isOpen ? "true" : "false"
-            );
-
-            blogMenuButton.setAttribute(
-                "aria-label",
-                isOpen
-                    ? "Close navigation menu"
-                    : "Open navigation menu"
-            );
-
-        });
-
-
-        /* Close menu after clicking a link */
-
-        const blogMobileLinks =
-            blogMobileMenu.querySelectorAll("a");
-
-
-        blogMobileLinks.forEach(function (link) {
-
-            link.addEventListener("click", function () {
-
-                blogMobileMenu.classList.remove("open");
-
-                blogMenuButton.classList.remove("active");
-
-                blogMenuButton.setAttribute(
+                menuButton.classList.toggle("active", isOpen);
+                menuButton.setAttribute(
                     "aria-expanded",
-                    "false"
+                    isOpen ? "true" : "false"
                 );
-
-                blogMenuButton.setAttribute(
+                menuButton.setAttribute(
                     "aria-label",
-                    "Open navigation menu"
+                    isOpen ? "Close navigation menu" : "Open navigation menu"
                 );
+            }
 
+            menuButton.addEventListener("click", toggleMenu);
+
+            mobileMenu.querySelectorAll("a").forEach(function (link) {
+                link.addEventListener("click", closeMenu);
             });
 
-        });
-
+            window.addEventListener("resize", function () {
+                if (window.innerWidth > 650) {
+                    closeMenu();
+                }
+            });
+        })();
     </script>
 
-
 </body>
-
 </html>
