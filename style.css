@@ -1687,7 +1687,7 @@ h2 span {
     cursor: wait;
 }
 /* =========================================
-   WHATSAPP GLOWING BUTTON
+   WHATSAPP BUTTON - FIXED POSITION
 ========================================= */
 
 .whatsapp-button {
@@ -1712,10 +1712,10 @@ h2 span {
     border-radius: 50px;
 
     box-shadow:
-        0 0 0 0 rgba(37, 211, 102, 0.7),
-        0 0 18px rgba(37, 211, 102, 0.55);
+        0 0 12px rgba(37, 211, 102, 0.7),
+        0 0 28px rgba(37, 211, 102, 0.5);
 
-    z-index: 9998;
+    z-index: 99999;
 
     animation: whatsappGlow 2s infinite;
     transition: transform 0.25s ease, box-shadow 0.25s ease;
@@ -1730,38 +1730,29 @@ h2 span {
     transform: translateY(-4px) scale(1.03);
 
     box-shadow:
-        0 0 12px rgba(37, 211, 102, 0.8),
-        0 0 30px rgba(37, 211, 102, 0.7);
+        0 0 15px rgba(37, 211, 102, 0.9),
+        0 0 35px rgba(37, 211, 102, 0.8);
 }
 
 @keyframes whatsappGlow {
-
-    0% {
+    0%, 100% {
         box-shadow:
-            0 0 0 0 rgba(37, 211, 102, 0.7),
-            0 0 18px rgba(37, 211, 102, 0.5);
+            0 0 12px rgba(37, 211, 102, 0.6),
+            0 0 25px rgba(37, 211, 102, 0.4);
     }
 
     50% {
         box-shadow:
-            0 0 0 8px rgba(37, 211, 102, 0),
-            0 0 28px rgba(37, 211, 102, 0.75);
-    }
-
-    100% {
-        box-shadow:
-            0 0 0 0 rgba(37, 211, 102, 0),
-            0 0 18px rgba(37, 211, 102, 0.5);
+            0 0 20px rgba(37, 211, 102, 0.9),
+            0 0 40px rgba(37, 211, 102, 0.7);
     }
 }
 
 /* Mobile */
 @media (max-width: 600px) {
-
     .whatsapp-button {
         right: 16px;
-        bottom: 16px;
-        padding: 12px 15px;
+        bottom: 90px;
     }
 
     .whatsapp-text {
