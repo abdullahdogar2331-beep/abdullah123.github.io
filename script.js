@@ -245,7 +245,7 @@ if (year) {
 
 
 /* =========================================
-   AI CHATBOT
+   AI CHATBOT — UPGRADED
 ========================================= */
 
 const aiChatButton = document.getElementById("aiChatButton");
@@ -255,8 +255,12 @@ const aiSendButton = document.getElementById("aiSendButton");
 const aiInput = document.getElementById("aiInput");
 const aiMessages = document.getElementById("aiMessages");
 
+let aiBusy = false;
 
-/* Open chatbot */
+
+/* =========================================
+   OPEN CHAT
+========================================= */
 
 if (aiChatButton && aiChatBox) {
 
@@ -274,7 +278,9 @@ if (aiChatButton && aiChatBox) {
 }
 
 
-/* Close chatbot */
+/* =========================================
+   CLOSE CHAT
+========================================= */
 
 if (aiCloseButton && aiChatBox && aiChatButton) {
 
@@ -288,40 +294,197 @@ if (aiCloseButton && aiChatBox && aiChatButton) {
 }
 
 
-/* Send AI message */
+/* =========================================
+   FORMAT AI RESPONSE
+========================================= */
+
+function formatAIResponse(text) {
+
+    if (!text) return "";
+
+    let safeText = text
+        .replace(/&/g, "&amp;")
+        .replace(/</g, "&lt;")
+        .replace(/>/g, "&gt;");
+
+
+    /*
+       Detect Markdown code blocks
+    */
+
+    safeText = safeText.replace(
+        /```(\w+)?\s*([\s\S]*?)```/g,
+        function (match, language, code) {
+
+            const lang = language || "code";
+            const cleanCode = code.trim();
+
+            return `
+                <div class="ai-code-wrapper">
+
+                    <div class="ai-code-header">
+                        <span>${lang}</span>
+
+                        <button
+                            class="ai-copy-button"
+                            type="button"
+                            onclick="copyAICode(this)"
+                        >
+                            Copy
+                        </button>
+                    </div>
+
+                    <pre class="ai-code"><code>${cleanCode}</code></pre>
+
+                </div>
+            `;
+
+        }
+    );
+
+
+    // Bold Markdown
+    safeText = safeText.replace(
+        /\*\*(.*?)\*\*/g,
+        "<strong>$1</strong>"
+    );
+
+
+    // Convert line breaks
+    safeText = safeText.replace(/\n/g, "<br>");
+
+    return safeText;
+}
+
+
+/* =========================================
+   COPY AI CODE
+========================================= */
+
+window.copyAICode = async function (button) {
+
+    const wrapper =
+        button.closest(".ai-code-wrapper");
+
+    if (!wrapper) return;
+
+    const codeElement =
+        wrapper.querySelector("code");
+
+    if (!codeElement) return;
+
+    try {
+
+        await navigator.clipboard.writeText(
+            codeElement.textContent
+        );
+
+        button.textContent = "Copied!";
+
+        setTimeout(function () {
+
+            button.textContent = "Copy";
+
+        }, 1500);
+
+    } catch (error) {
+
+        button.textContent = "Failed";
+
+        setTimeout(function () {
+
+            button.textContent = "Copy";
+
+        }, 1500);
+
+    }
+
+};
+
+
+/* =========================================
+   ADD MESSAGE
+========================================= */
+
+function addAIMessage(text, type = "bot") {
+
+    const message =
+        document.createElement("div");
+
+    message.className =
+        `ai-message ${
+            type === "user"
+                ? "ai-user"
+                : "ai-bot"
+        }`;
+
+    if (type === "bot") {
+
+        message.innerHTML =
+            formatAIResponse(text);
+
+    } else {
+
+        message.textContent = text;
+
+    }
+
+    aiMessages.appendChild(message);
+
+    aiMessages.scrollTop =
+        aiMessages.scrollHeight;
+}
+
+
+/* =========================================
+   SEND AI MESSAGE
+========================================= */
 
 async function sendAIMessage() {
 
-    if (!aiInput || !aiMessages) return;
+    if (!aiInput || !aiMessages || aiBusy) {
+        return;
+    }
 
-    const message = aiInput.value.trim();
+    const message =
+        aiInput.value.trim();
 
     if (!message) return;
 
+    aiBusy = true;
 
-    /* User message */
 
-    const userMessage = document.createElement("div");
+    if (aiSendButton) {
 
-    userMessage.className = "ai-message ai-user";
-    userMessage.textContent = message;
+        aiSendButton.disabled = true;
+        aiSendButton.textContent = "Thinking...";
 
-    aiMessages.appendChild(userMessage);
+    }
+
+
+    // Add user message
+    addAIMessage(message, "user");
 
     aiInput.value = "";
 
 
-    /* Loading message */
+    // Thinking animation
+    const loadingMessage =
+        document.createElement("div");
 
-    const loadingMessage = document.createElement("div");
+    loadingMessage.className =
+        "ai-message ai-bot ai-thinking";
 
-    loadingMessage.className = "ai-message ai-bot";
-    loadingMessage.id = "aiLoading";
-    loadingMessage.textContent = "Thinking...";
+    loadingMessage.innerHTML = `
+        <span class="thinking-dot"></span>
+        <span class="thinking-dot"></span>
+        <span class="thinking-dot"></span>
+    `;
 
     aiMessages.appendChild(loadingMessage);
 
-    aiMessages.scrollTop = aiMessages.scrollHeight;
+    aiMessages.scrollTop =
+        aiMessages.scrollHeight;
 
 
     try {
@@ -342,58 +505,54 @@ async function sendAIMessage() {
         );
 
 
-        const data = await response.json();
-
-
-        const currentLoading =
-            document.getElementById("aiLoading");
-
-        if (currentLoading) {
-            currentLoading.remove();
+        if (!response.ok) {
+            throw new Error("AI request failed");
         }
 
 
-        const botMessage = document.createElement("div");
-
-        botMessage.className = "ai-message ai-bot";
-
-        botMessage.textContent =
-            data.reply || "Sorry, I couldn't answer that.";
-
-        aiMessages.appendChild(botMessage);
+        const data =
+            await response.json();
 
 
-        aiMessages.scrollTop = aiMessages.scrollHeight;
+        loadingMessage.remove();
+
+
+        addAIMessage(
+            data.reply ||
+            "Sorry, I couldn't generate an answer."
+        );
 
 
     } catch (error) {
 
-        const currentLoading =
-            document.getElementById("aiLoading");
+        loadingMessage.remove();
 
-        if (currentLoading) {
-            currentLoading.remove();
-        }
-
-
-        const errorMessage = document.createElement("div");
-
-        errorMessage.className = "ai-message ai-bot";
-
-        errorMessage.textContent =
-            "Sorry, something went wrong.";
-
-
-        aiMessages.appendChild(errorMessage);
-
-        aiMessages.scrollTop = aiMessages.scrollHeight;
+        addAIMessage(
+            "Sorry, something went wrong. Please try again."
+        );
 
     }
 
+
+    aiBusy = false;
+
+
+    if (aiSendButton) {
+
+        aiSendButton.disabled = false;
+        aiSendButton.textContent = "Send";
+
+    }
+
+
+    aiMessages.scrollTop =
+        aiMessages.scrollHeight;
 }
 
 
-/* Send button */
+/* =========================================
+   SEND BUTTON
+========================================= */
 
 if (aiSendButton) {
 
@@ -405,20 +564,25 @@ if (aiSendButton) {
 }
 
 
-/* Enter key */
+/* =========================================
+   ENTER TO SEND
+========================================= */
 
 if (aiInput) {
 
-    aiInput.addEventListener("keydown", function (event) {
+    aiInput.addEventListener(
+        "keydown",
+        function (event) {
 
-        if (event.key === "Enter") {
+            if (event.key === "Enter") {
 
-            event.preventDefault();
+                event.preventDefault();
 
-            sendAIMessage();
+                sendAIMessage();
+
+            }
 
         }
-
-    });
+    );
 
 }
