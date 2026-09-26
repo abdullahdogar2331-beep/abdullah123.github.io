@@ -1548,3 +1548,20 @@ h2 span {
 .menu-toggle span {
     transition: all 0.35s ease;
 }
+@media (max-width: 900px) {
+
+    .nav-links.open {
+        background: #050505 !important;
+        border: 1px solid #222 !important;
+    }
+
+    .nav-links.open .nav-link {
+        color: #ffffff !important;
+    }
+
+    .nav-links.open .nav-link:hover {
+        background: #111111 !important;
+        color: #c7ff35 !important;
+    }
+
+}
